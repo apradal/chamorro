@@ -17,4 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/** Only auth users can access the application */
+Route::group(['middleware' => 'auth'], function (){
+    // Registration routers
+    $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+    $this->post('register', 'Auth\RegisterController@register');
+
+    Route::get('/home', 'HomeController@index')->name('home');
+});
