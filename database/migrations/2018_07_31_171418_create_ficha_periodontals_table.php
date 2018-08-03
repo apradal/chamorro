@@ -15,24 +15,24 @@ class CreateFichaPeriodontalsTable extends Migration
     {
         Schema::create('ficha_periodontals', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('pacient_id');
-            $table->text('reason');
-            $table->text('symptom');
-            $table->smallInteger('smoker');
+            $table->unsignedInteger('paciente_id');
+            $table->text('reason')->nullable();
+            $table->text('symptom')->nullable();
+            $table->smallInteger('smoker')->nullable();
             $table->string('smoker_desc')->nullable();
-            $table->smallInteger('stress');
+            $table->smallInteger('stress')->nullable();
             $table->string('stress_desc')->nullable();
-            $table->smallInteger('halitosis');
+            $table->smallInteger('halitosis')->nullable();
             $table->string('halitosis_desc')->nullable();
-            $table->smallInteger('sensitivity');
+            $table->smallInteger('sensitivity')->nullable();
             $table->string('sensitivity_desc')->nullable();
-            $table->smallInteger('bleeding');
+            $table->smallInteger('bleeding')->nullable();
             $table->string('bleeding_desc')->nullable();
-            $table->text('family_background');
-            $table->longText('habits');
+            $table->text('family_background')->nullable();
+            $table->longText('habits')->nullable();
             $table->timestamps();
 
-            $table->foreign('pacient_id')->references('id')->on('pacientes');
+            $table->foreign('paciente_id')->references('id')->on('pacientes');
         });
     }
 
