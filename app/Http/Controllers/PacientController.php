@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Validator;
 use App\Paciente;
 use App\FichaPeriodontal;
 
 class PacientController extends Controller
 {
+    protected $pacient = null;
     /**
      * Create a new controller instance.
      *
@@ -17,6 +19,7 @@ class PacientController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->pacient = new Paciente;
     }
 
     /**
@@ -61,5 +64,16 @@ class PacientController extends Controller
                 return redirect()->back()->withErrors(['El paciente ' . $inputs['name'] . ' ' . $inputs['lastname'] . ' Ya existe!']);
             }
         }
+    }
+
+    public function searchPacientAjax(Request $request)
+    {
+        $letter = $request->input('letter');
+        $pacients = $this->pacient->getPacientsByLetter($letter);
+        $data = array();
+
+        foreach ($pacients as $pacient) $data[$pacient->id] = ucfirst($pacient->name) . ' ' . ucfirst($pacient->lastname);
+
+        return response()->json(['pacients' => $data, 'success' => true], 200);
     }
 }

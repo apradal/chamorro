@@ -43,4 +43,10 @@ class Paciente extends Model
         return ($this::where($wheres)->first()) ? true : false;
     }
 
+    public function getPacientsByLetter($letter)
+    {
+        return $this::where('name', 'like', $letter . '%')->get();
+    }
+
+
 }
