@@ -15,14 +15,13 @@ class CreateCuadrantesTable extends Migration
     {
         Schema::create('cuadrantes', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('periodontal_record_id');
-            $table->integer('pacient_id');
+            $table->unsignedInteger('pacient_id');
             $table->string('pattern');
             $table->date('date');
             $table->longText('observations')->nullable();
             $table->timestamps();
 
-            $table->foreign('periodontal_record_id')->references('id')->on('ficha_periodontals');
+            $table->foreign('pacient_id')->references('id')->on('pacientes');
         });
     }
 
