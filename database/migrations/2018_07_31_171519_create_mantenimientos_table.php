@@ -20,7 +20,7 @@ class CreateMantenimientosTable extends Migration
             $table->longText('observations')->nullable();
             $table->timestamps();
 
-            $table->foreign('paciente_id')->references('id')->on('pacientes');
+            $table->foreign('pacient_id')->references('id')->on('pacientes');
         });
     }
 

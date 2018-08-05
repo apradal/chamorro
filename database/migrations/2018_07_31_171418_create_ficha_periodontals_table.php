@@ -15,7 +15,7 @@ class CreateFichaPeriodontalsTable extends Migration
     {
         Schema::create('ficha_periodontals', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('paciente_id');
+            $table->unsignedInteger('pacient_id');
             $table->text('reason')->nullable();
             $table->text('symptom')->nullable();
             $table->smallInteger('smoker')->nullable();
@@ -32,7 +32,7 @@ class CreateFichaPeriodontalsTable extends Migration
             $table->longText('habits')->nullable();
             $table->timestamps();
 
-            $table->foreign('paciente_id')->references('id')->on('pacientes');
+            $table->foreign('pacient_id')->references('id')->on('pacientes');
         });
     }
 
