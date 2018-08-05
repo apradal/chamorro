@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Paciente extends Model
 {
@@ -32,6 +33,11 @@ class Paciente extends Model
         }
     }
 
+    /**
+     * Atack the bbdd before create the pacient
+     * @param $inputs
+     * @return bool
+     */
     protected function checkPacientBeforeCreate($inputs)
     {
         $wheres = array();
@@ -43,9 +49,24 @@ class Paciente extends Model
         return ($this::where($wheres)->first()) ? true : false;
     }
 
+    /**
+     * Seach on bbdd is pacient exist
+     * @param $letter
+     * @return mixed
+     */
     public function getPacientsByLetter($letter)
     {
         return $this::where('name', 'like', $letter . '%')->get();
+    }
+
+    public function getPacientByFullName($name)
+    {
+        $data = DB::select("select * from 
+              (SELECT *, (SELECT CONCAT(REPLACE(name, ' ',''), REPLACE(lastname, ' ',''))) as FULL FROM `pacientes`)
+               as a where a.FULL = '$name'");
+
+        return ($data) ? $this::find($data[0]->id) : false;
+
     }
 
 

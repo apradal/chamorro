@@ -7,9 +7,8 @@ if (typeof CHA == "undefined") {
 
 CHA.formsearch = {
 
-    pacients: [],
-    firtsValue: null,
     pacientInput: $("#pacient"),
+    pacientIdInput: $("input[name='pacient_id']"),
 
     init: function () {
         this.events();
@@ -19,30 +18,30 @@ CHA.formsearch = {
     },
     getPacients: function () {
         var that = this;
-        this.pacientInput.keyup(function () {
-            if(this.value.length === 1 && this.firtsValue !== this.value.toLowerCase()) {
-                this.firtsValue = this.value.toLowerCase();
-                var value = { letter : this.firtsValue };
-                $.ajax({
+        this.pacientInput.on('keyup', function () {
+            if (this.value.length <= 1) {
+                that.pacientIdInput.val('');
+            }
+        });
+        this.pacientInput.autocomplete({
+            source: function( request, response ) {
+                $.ajax( {
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: '/pacients/seach-pacient-ajax',
-                    data: value,
-                    type: 'post',
-                    success: function(response){
-                        if (response.success && Object.keys(response.pacients).length > 0) {
-                            for (var index in response.pacients) {
-                                that.pacients.push(response.pacients[index]);
-                            }
-                            that.pacientInput.autocomplete({
-                                source: that.pacients
-                            });
-                        }
+                    url: "/pacients/seach-pacient-ajax",
+                    dataType: "json",
+                    data: {
+                        term: request.term
+                    },
+                    success: function( data ) {
+                        response( data );
                     }
-                });
-            } else if (this.value.length === 0) {
-                if (Object.keys(that.pacients).length > 0) that.pacients = [];
+                } );
+            },
+            minLength: 1,
+            select: function( event, ui ) {
+                that.pacientIdInput.val(ui.item.id);
             }
         });
     }

@@ -28,5 +28,5 @@ Route::group(['middleware' => 'auth'], function (){
     /** Pacients */
     Route::get('/pacients/new', 'PacientController@newPacient');
     Route::get('/pacients/create', 'PacientController@createPacient');
-    Route::post('/pacients/seach-pacient-ajax', 'PacientController@searchPacientAjax');
+    Route::get('/pacients/seach-pacient-ajax', 'PacientController@searchPacientAjax');
 });

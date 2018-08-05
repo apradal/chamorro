@@ -67,12 +67,14 @@ class PacientController extends Controller
 
     public function searchPacientAjax(Request $request)
     {
-        $letter = $request->input('letter');
+        $letter = $request->input('term');
         $pacients = $this->pacient->getPacientsByLetter($letter);
         $data = array();
 
-        foreach ($pacients as $pacient) $data[$pacient->id] = ucfirst($pacient->name) . ' ' . ucfirst($pacient->lastname);
+        foreach ($pacients as $pacient) {
+            $data[] = array('value' => ucfirst($pacient->name) . ' ' . ucfirst($pacient->lastname), 'id' => $pacient->id);
+        }
 
-        return response()->json(['pacients' => $data, 'success' => true], 200);
+        return response()->json($data, 200);
     }
 }
