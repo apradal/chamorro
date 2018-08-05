@@ -17,37 +17,6 @@
     <!-- JS -->
     <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('js/jquery-ui.min.js')}}"></script>
-    {{--<script>--}}
-        {{--$( function() {--}}
-            {{--var availableTags = [--}}
-                {{--"ActionScript",--}}
-                {{--"AppleScript",--}}
-                {{--"Asp",--}}
-                {{--"BASIC",--}}
-                {{--"C",--}}
-                {{--"C++",--}}
-                {{--"Clojure",--}}
-                {{--"COBOL",--}}
-                {{--"ColdFusion",--}}
-                {{--"Erlang",--}}
-                {{--"Fortran",--}}
-                {{--"Groovy",--}}
-                {{--"Haskell",--}}
-                {{--"Java",--}}
-                {{--"JavaScript",--}}
-                {{--"Lisp",--}}
-                {{--"Perl",--}}
-                {{--"PHP",--}}
-                {{--"Python",--}}
-                {{--"Ruby",--}}
-                {{--"Scala",--}}
-                {{--"Scheme"--}}
-            {{--];--}}
-            {{--$( "#pacient" ).autocomplete({--}}
-                {{--source: availableTags--}}
-            {{--});--}}
-        {{--} );--}}
-    {{--</script>--}}
 </head>
 <body>
     <div id="app">

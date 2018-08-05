@@ -15,12 +15,12 @@ class CreateMantenimientosTable extends Migration
     {
         Schema::create('mantenimientos', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('pacient_id');
+            $table->unsignedInteger('paciente_id');
             $table->date('date');
             $table->longText('observations')->nullable();
             $table->timestamps();
 
-            $table->foreign('pacient_id')->references('id')->on('pacientes');
+            $table->foreign('paciente_id')->references('id')->on('pacientes');
         });
     }
 

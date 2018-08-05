@@ -55,7 +55,6 @@ class PacientController extends Controller
             $pacient = new Paciente;
             $pacient = $pacient->create($inputs);
             if ($pacient) {
-                //TODO una vez que ya comprobamos, sacar para crear la ficha.
                 $card = new FichaPeriodontal;
                 $card->paciente()->associate($pacient);
                 $card->save();
