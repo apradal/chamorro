@@ -11,16 +11,13 @@
         @endif
         <div class="row">
             <h2><?php echo __('Ficha Periodontal')?></h2>
+            <p><?php echo (!empty($pacient)) ? __('') : __('Busca un paciente para cargar su ficha.'); ?></p>
             <div class="col-xs-12">
                 <div class="form" id="search-pacient-form">
                     {!! Form::open(['url' => '/periodontics/card', 'method' => 'GET']) !!}
-                    @if(!empty($pacient))
-                        {{Form::text('pacient', $pacient->name . ' ' . $pacient->lastname, ['maxlength' => '40'])}}
-                        {{Form::hidden('pacient_id', $pacient->id)}}
-                    @else
-                        {{Form::text('pacient', '', ['placeholder' => 'Paciente: Antonio Prada ...', 'maxlength' => '40'])}}
-                        {{Form::hidden('pacient_id', '')}}
-                    @endif
+                    <input placeholder="Paciente: Antonio Prada ..." maxlength="40" id="pacient" name="pacient" type="text"
+                           value="<?php echo (isset($pacient)) ? $pacient->name . ' ' . $pacient->lastname : ''; ?>" class="ui-autocomplete-input" autocomplete="off">
+                    <input name="pacient_id" type="hidden" value="<?php echo (isset($pacient)) ? $pacient->id : ''; ?>">
                     {{Form::hidden('_token', csrf_token())}}
                     {{Form::submit('Buscar')}}
                     {!! Form::close() !!}
@@ -29,12 +26,11 @@
                 <br/>
             </div>
             <div class="col-xs-12">
-                {!! Form::open(['url' => '/periodontics/card', 'method' => 'GET']) !!}
-                {{Form::textarea('reason', '', ['placeholder' => 'Motivo consulta: ...'])}}
-                {{Form::textarea('symptom', '', ['placeholder' => 'Síntomas: ...'])}}
-                {{Form::textarea('bleeding_desc', '', ['placeholder' => 'Sangrado: ...', 'class' => 'hidden'])}}
-                {{Form::textarea('family-background', '', ['placeholder' => 'Antecedentes Familiares: ...'])}}
-                {{Form::textarea('habits', '', ['placeholder' => 'Hábitos de higiene: ...'])}}
+                {!! Form::open(['url' => '/periodontics/update-card', 'method' => 'GET']) !!}
+                <textarea placeholder="Motivo consulta: ..." name="reason" cols="50" rows="10"><?php if (isset($card)) echo $card->reason; ?></textarea>
+                <textarea placeholder="Síntomas: ..." name="symptom" cols="50" rows="10"><?php if (isset($card)) echo $card->symptom; ?></textarea>
+                <textarea placeholder="Antecedentes Familiares: ..." name="family_background" cols="50" rows="10"><?php if (isset($card)) echo $card->family_background; ?></textarea>
+                <textarea placeholder="Hábitos de higiene: ..." name="habits" cols="50" rows="10"><?php if (isset($card)) echo $card->habits; ?></textarea>
                 <div class="switch-container">
                     <div>
                         <label>Fumador:</label>
@@ -46,7 +42,7 @@
                             </div>
                         </label>
                     </div>
-                    {{Form::textarea('smoker_desc', '', ['placeholder' => 'Fumador: ...', 'class' => 'hidden', 'id' => 'smoker-desc'])}}
+                    <textarea placeholder="Fumador: ..." class="hidden" id="smoker-desc" name="smoker_desc" cols="50" rows="10"><?php if (isset($card)) echo $card->smoker_desc; ?></textarea>
                 </div>
                 <div class="switch-container">
                     <div>
@@ -59,7 +55,7 @@
                             </div>
                         </label>
                     </div>
-                    {{Form::textarea('stress_desc', '', ['placeholder' => 'Estrés: ...', 'class' => 'hidden', 'id' => 'stress-desc'])}}
+                    <textarea placeholder="Estrés: ..." class="hidden" id="stress-desc" name="stress_desc" cols="50" rows="10"><?php if (isset($card)) echo $card->stress_desc; ?></textarea>
                 </div>
                 <div class="switch-container">
                     <div>
@@ -72,7 +68,7 @@
                             </div>
                         </label>
                     </div>
-                    {{Form::textarea('halitosis_desc', '', ['placeholder' => 'Halitosis: ...', 'class' => 'hidden', 'id' => 'halitosis-desc'])}}
+                    <textarea placeholder="Halitosis: ..." class="hidden" id="halitosis-desc" name="halitosis_desc" cols="50" rows="10"><?php if (isset($card)) echo $card->halitosis_desc; ?></textarea>
                 </div>
                 <div class="switch-container">
                     <div>
@@ -85,7 +81,7 @@
                             </div>
                         </label>
                     </div>
-                    {{Form::textarea('sensivity_desc', '', ['placeholder' => 'Sensibilidad: ...', 'class' => 'hidden', 'id' => 'sensitivity-desc'])}}
+                    <textarea placeholder="Sensibilidad: ..." class="hidden" id="sensitivity-desc" name="sensitivity_desc" cols="50" rows="10"><?php if (isset($card)) echo $card->sensitivity_desc; ?></textarea>
                 </div>
                 <div class="switch-container">
                     <div>
@@ -98,8 +94,12 @@
                             </div>
                         </label>
                     </div>
-                    {{Form::textarea('bleeding_desc', '', ['placeholder' => 'Sangrado: ...', 'class' => 'hidden', 'id' => 'bleeding-desc'])}}
+                    <textarea placeholder="Sangrado: ..." class="hidden" id="bleeding-desc" name="bleeding_desc" cols="50" rows="10"><?php if (isset($card)) echo $card->bleeding_desc; ?></textarea>
                 </div>
+                <input name="pacient_id_card" id="pacient_id_card" type="hidden" value="<?php if (isset($pacient)) echo $pacient->id; ?>">
+                {{Form::hidden('_token', csrf_token())}}
+                {{Form::submit('Guardar')}}
+                {!! Form::close() !!}
             </div>
         </div>
     </div>

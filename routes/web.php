@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function (){
     /** Periodontics */
     Route::get('/periodontics', 'PeriodonticController@index')->name('periodontics');
     Route::get('/periodontics/card', 'PeriodonticController@card')->name('card');
+    Route::get('/periodontics/update-card', 'PeriodonticController@update')->name('updatecard');
     /** Pacients */
     Route::get('/pacients/new', 'PacientController@newPacient');
     Route::get('/pacients/create', 'PacientController@createPacient');
