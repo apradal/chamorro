@@ -36,10 +36,9 @@ class PeriodonticController extends Controller
     public function card(Request $request)
     {
         $name = $request->input('pacient');
-        $lastPacient = $request->input('last_pacient_searched');
         if (session('pacient')) { //redirecting from created user
             return view('periodontics.card')->with(array('pacient' => session('pacient'), 'card' => session('pacient')->fichaperiodontal));
-        } elseif (isset($name) && $lastPacient !== $name) { //search from pediodontal card
+        } elseif (isset($name)) { //search from pediodontal card
             $pacient = new Paciente;
             $name = str_replace(' ','', $name);
             if ($pacient = $pacient->getPacientByFullName($name)) {
@@ -63,7 +62,7 @@ class PeriodonticController extends Controller
             $card = $pacient->fichaperiodontal;
             $card = $card->updateCard($request->all());
             if ($card) {
-                return redirect()->route('card')->with('message', 'Ficha pediorontal actualizada');
+                return redirect()->route('main')->with('message', 'Ficha pediorontal actualizada');
             }
         }
 

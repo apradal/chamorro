@@ -19,9 +19,13 @@ Route::group(['middleware' => 'auth'], function (){
     $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
     $this->post('register', 'Auth\RegisterController@register');
 
+    //TODO empezar con la app principal y arreglar la pantalla de usuarios.
+
+
     /** General Application */
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/main', 'MainController@index')->name('main');
     /** Periodontics */
     Route::get('/periodontics', 'PeriodonticController@index')->name('periodontics');
     Route::get('/periodontics/card', 'PeriodonticController@card')->name('card');
