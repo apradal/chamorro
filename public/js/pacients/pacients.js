@@ -8,7 +8,6 @@ if (typeof CHA == "undefined") {
 CHA.formsearch = {
 
     pacientInput: $("#pacient"),
-    pacientIdInput: $("input[name='pacient_id']"),
 
     init: function () {
         this.events();
@@ -18,11 +17,6 @@ CHA.formsearch = {
     },
     getPacients: function () {
         var that = this;
-        this.pacientInput.on('keyup', function () {
-            if (this.value.length <= 1) {
-                that.pacientIdInput.val('');
-            }
-        });
         this.pacientInput.autocomplete({
             source: function( request, response ) {
                 $.ajax( {
@@ -39,10 +33,7 @@ CHA.formsearch = {
                     }
                 } );
             },
-            minLength: 1,
-            select: function( event, ui ) {
-                that.pacientIdInput.val(ui.item.id);
-            }
+            minLength: 1
         });
     }
 };

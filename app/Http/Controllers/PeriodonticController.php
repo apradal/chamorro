@@ -35,21 +35,17 @@ class PeriodonticController extends Controller
      */
     public function card(Request $request)
     {
-        $id = $request->input('pacient_id');
         $name = $request->input('pacient');
+        $lastPacient = $request->input('last_pacient_searched');
         if (session('pacient')) { //redirecting from created user
             return view('periodontics.card')->with(array('pacient' => session('pacient'), 'card' => session('pacient')->fichaperiodontal));
-        } elseif (isset($id) && isset($name)){ //search from perdidontal card
-            $pacient = new Paciente;
-            $pacient = $pacient->find($id);
-            return view('periodontics.card')->with(array('pacient' => $pacient, 'card' => $pacient->fichaperiodontal));
-        } elseif (!isset($id) && isset($name)) { //search from pediodontal card but not clicking on results given by ajax
+        } elseif (isset($name) && $lastPacient !== $name) { //search from pediodontal card
             $pacient = new Paciente;
             $name = str_replace(' ','', $name);
             if ($pacient = $pacient->getPacientByFullName($name)) {
                 return view('periodontics.card')->with(array('pacient' => $pacient, 'card' => $pacient->fichaperiodontal));
             } else {
-                return view('periodontics.card');
+                return view('periodontics.card')->withErrors(['El paciente ' . $name . ' no existe ne la base de datos']);
             }
         } else {
             return view('periodontics.card');
@@ -60,16 +56,18 @@ class PeriodonticController extends Controller
     {
         $pacient_id = $request->input('pacient_id_card');
 
+        if (!isset($pacient_id)) return redirect()->back()->withErrors(['Debes buscar un paciente antes de modificar una ficha.']);
         $pacient = new Paciente;
         $pacient = $pacient->find($pacient_id);
         if ($pacient->id) {
             $card = $pacient->fichaperiodontal;
             $card = $card->updateCard($request->all());
             if ($card) {
-                //TODO, comprobar si ha cxargado paciente y si no redirect error. si guarda redirect a nueva pagína
-                return redirect()->route('card')->with('message', 'Ficha creada o actualizada');
+                return redirect()->route('card')->with('message', 'Ficha pediorontal actualizada');
             }
         }
+
+        return false;
 
     }
 
