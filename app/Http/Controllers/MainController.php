@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use App\Paciente;
+
 class MainController extends Controller
 {
     /**
@@ -19,8 +22,21 @@ class MainController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('main');
+        $name = $request->input('pacient');
+        if (session('pacient')) { //redirecting from ficha periodontal
+            return view('main')->with(array('pacient' => session('pacient'), 'card' => session('pacient')->fichaperiodontal));
+        } elseif (isset($name)) { //search from input
+            $pacient = new Paciente;
+            $name = str_replace(' ','', $name);
+            if ($pacient = $pacient->getPacientByFullName($name)) {
+                return view('main')->with(array('pacient' => $pacient, 'card' => $pacient->fichaperiodontal));
+            } else {
+                return view('main')->withErrors(['El paciente ' . $name . ' no existe ne la base de datos']);
+            }
+        } else {
+            return view('main');
+        }
     }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\FichaPeriodontal;
 use App\Paciente;
 use Illuminate\Http\Request;
 
