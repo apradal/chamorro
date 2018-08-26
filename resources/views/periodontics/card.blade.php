@@ -35,66 +35,66 @@
                         <div>
                             <label>Fumador:</label>
                             <label for="smoker" class="switch">
-                                <input type="checkbox" id="smoker"/>
+                                <input type="checkbox" id="smoker" <?php if (isset($card->smoker_desc)) : ?> checked <?php endif; ?>/>
                                 <div class="slider round">
                                     <span class="on">SI</span>
                                     <span class="off">NO</span>
                                 </div>
                             </label>
                         </div>
-                        <textarea placeholder="Fumador: ..." class="hidden" id="smoker-desc" name="smoker_desc" cols="50" rows="10"><?php if (isset($card)) echo $card->smoker_desc; ?></textarea>
+                        <textarea placeholder="Fumador: ..." <?php if (!isset($card->smoker_desc)) : ?> class="hidden" <?php endif; ?> id="smoker-desc" name="smoker_desc" cols="50" rows="10"><?php if (isset($card)) echo $card->smoker_desc; ?></textarea>
                     </div>
                     <div class="switch-container">
                         <div>
                             <label>Estrés:</label>
                             <label for="stress" class="switch">
-                                <input type="checkbox" id="stress"/>
+                                <input type="checkbox" id="stress" <?php if (isset($card->stress_desc)) : ?> checked <?php endif; ?>/>
                                 <div class="slider round">
                                     <span class="on">SI</span>
                                     <span class="off">NO</span>
                                 </div>
                             </label>
                         </div>
-                        <textarea placeholder="Estrés: ..." class="hidden" id="stress-desc" name="stress_desc" cols="50" rows="10"><?php if (isset($card)) echo $card->stress_desc; ?></textarea>
+                        <textarea placeholder="Estrés: ..." <?php if (!isset($card->stress_desc)) : ?> class="hidden" <?php endif; ?> id="stress-desc" name="stress_desc" cols="50" rows="10"><?php if (isset($card)) echo $card->stress_desc; ?></textarea>
                     </div>
                     <div class="switch-container">
                         <div>
                             <label>Halitosis:</label>
                             <label for="halitosis" class="switch">
-                                <input type="checkbox" id="halitosis"/>
+                                <input type="checkbox" id="halitosis" <?php if (isset($card->halitosis_desc)) : ?> checked <?php endif; ?>/>
                                 <div class="slider round">
                                     <span class="on">SI</span>
                                     <span class="off">NO</span>
                                 </div>
                             </label>
                         </div>
-                        <textarea placeholder="Halitosis: ..." class="hidden" id="halitosis-desc" name="halitosis_desc" cols="50" rows="10"><?php if (isset($card)) echo $card->halitosis_desc; ?></textarea>
+                        <textarea placeholder="Halitosis: ..." <?php if (!isset($card->halitosis_desc)) : ?> class="hidden" <?php endif; ?> id="halitosis-desc" name="halitosis_desc" cols="50" rows="10"><?php if (isset($card)) echo $card->halitosis_desc; ?></textarea>
                     </div>
                     <div class="switch-container">
                         <div>
                             <label>Sensibilidad:</label>
                             <label for="sensitivity" class="switch">
-                                <input type="checkbox" id="sensitivity"/>
+                                <input type="checkbox" id="sensitivity" <?php if (isset($card->sensitivity_desc)) : ?> checked <?php endif; ?>/>
                                 <div class="slider round">
                                     <span class="on">SI</span>
                                     <span class="off">NO</span>
                                 </div>
                             </label>
                         </div>
-                        <textarea placeholder="Sensibilidad: ..." class="hidden" id="sensitivity-desc" name="sensitivity_desc" cols="50" rows="10"><?php if (isset($card)) echo $card->sensitivity_desc; ?></textarea>
+                        <textarea placeholder="Sensibilidad: ..." <?php if (!isset($card->sensitivity_desc)) : ?> class="hidden" <?php endif; ?> id="sensitivity-desc" name="sensitivity_desc" cols="50" rows="10"><?php if (isset($card)) echo $card->sensitivity_desc; ?></textarea>
                     </div>
                     <div class="switch-container">
                         <div>
                             <label>Sangrado:</label>
                             <label for="bleeding" class="switch">
-                                <input type="checkbox" id="bleeding"/>
+                                <input type="checkbox" id="bleeding" <?php if (isset($card->bleeding_desc)) : ?> checked <?php endif; ?>/>
                                 <div class="slider round">
                                     <span class="on">SI</span>
                                     <span class="off">NO</span>
                                 </div>
                             </label>
                         </div>
-                        <textarea placeholder="Sangrado: ..." class="hidden" id="bleeding-desc" name="bleeding_desc" cols="50" rows="10"><?php if (isset($card)) echo $card->bleeding_desc; ?></textarea>
+                        <textarea placeholder="Sangrado: ..." <?php if (!isset($card->bleeding_desc)) : ?> class="hidden" <?php endif; ?> id="bleeding-desc" name="bleeding_desc" cols="50" rows="10"><?php if (isset($card)) echo $card->bleeding_desc; ?></textarea>
                     </div>
                     <input name="pacient_id_card" id="pacient_id_card" type="hidden" value="<?php if (isset($pacient)) echo $pacient->id; ?>">
                     {{Form::hidden('_token', csrf_token())}}
