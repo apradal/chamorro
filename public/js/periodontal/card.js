@@ -17,8 +17,8 @@ CHA.card = {
         var checkBoxes = $("input[type=checkbox]");
         checkBoxes.on('click', function () {
             if (this.checked === true) {
-                $("#" + this.id + "-desc").removeClass("hidden");
                 $("#" + this.id + "-desc").fadeIn(500);
+                $("#" + this.id + "-desc").removeClass("hidden");
             } else {
                 $("#" + this.id + "-desc").fadeOut(500);
                 $("#" + this.id + "-desc").val("");

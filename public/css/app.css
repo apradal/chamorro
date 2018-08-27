@@ -11511,6 +11511,26 @@ textarea:focus {
   border-color: #31B0D5;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.block-background {
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
 label {
   vertical-align: middle;
   width: 100px;
@@ -11519,10 +11539,15 @@ label {
 .icon-boxed {
   padding: 2%;
   background: white;
-  border-radius: 2.5%;
-  display: inline-block;
-  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #636B6F;
   cursor: pointer;
+  width: 40%;
+  text-align: center;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
 }
 
 .icon-boxed .fa {
@@ -11530,11 +11555,100 @@ label {
   font-size: 20px;
 }
 
+.icon-boxed span {
+  font-weight: bold;
+}
+
+.icon-boxed:hover {
+  background: #636B6F;
+  color: white;
+}
+
 .info-box {
   width: 100%;
   height: 300px;
-  border-radius: 2.5%;
+  border-radius: 8px;
   background-color: #fff;
   overflow: auto;
+}
+
+.treatments-box {
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: absolute;
+  width: 80%;
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+}
+
+.icon-boxed-treatments {
+  padding: 2%;
+  background: #636B6F;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #fff;
+  cursor: pointer;
+  width: 90%;
+  color: #fff;
+  text-align: center;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+}
+
+.icon-boxed-treatments .fa {
+  padding-left: 5px;
+  font-size: 20px;
+}
+
+.icon-boxed-treatments span {
+  font-weight: bold;
+}
+
+.icon-boxed-treatments:hover {
+  background: #fff;
+  color: #636B6F;
+  border: 1px solid #636B6F;
+}
+
+#treatments-box-ul li {
+  margin: 20px 0;
+}
+
+#treatments-box-close {
+  font-size: 30px;
+  position: relative;
+  margin-bottom: 10px;
+  right: -500px;
+  top: 0;
+  cursor: pointer;
+}
+
+#cuadrante-box-add {
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: absolute;
+  width: 80%;
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+}
+
+#cuadrante-box-close {
+  font-size: 30px;
+  position: relative;
+  margin-bottom: 10px;
+  right: -500px;
+  top: 0;
+  cursor: pointer;
 }
 

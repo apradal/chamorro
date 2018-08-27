@@ -1,24 +1,91 @@
+//Icons on main
 .icon-boxed {
   padding: 2%;
   background: white;
-  border-radius: 2.5%;
-  display: inline-block;
-  border: 1px solid $grey;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid $black-grey;
   cursor: pointer;
+  width: 40%;
+  text-align: center;
+  transition-duration: 0.4s;
   .fa {
     padding-left: 5px;
     font-size: 20px;
   }
+  span {
+    font-weight: bold;
+  }
+  &:hover {
+    background: $black-grey;
+    color: white;
+  }
 }
 
+//Info boxes on main
 .info-box {
   width: 100%;
   height: 300px;
-  border-radius: 2.5%;
+  border-radius: 8px;
   background-color: $white;
   overflow: auto;
 }
 
+//Treatments box
+.treatments-box {
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 80%;
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+}
+
+.icon-boxed-treatments {
+  padding: 2%;
+  background: $black-grey;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid $white;
+  cursor: pointer;
+  width: 90%;
+  color: $white;
+  text-align: center;
+  transition-duration: 0.4s;
+  .fa {
+    padding-left: 5px;
+    font-size: 20px;
+  }
+  span {
+    font-weight: bold;
+  }
+  &:hover {
+    background: $white;
+    color: $black-grey;
+    border: 1px solid $black-grey;
+  }
+}
+
+#treatments-box-ul {
+  li {
+    margin: 20px 0;
+  }
+}
+
+#treatments-box-close {
+  font-size: 30px;
+  position: relative;
+  margin-bottom: 10px;
+  right: -500px;
+  top: 0;
+  cursor: pointer;
+}
 
 
 @media screen and (min-width: 992px) {

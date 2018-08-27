@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="block-background hidden"></div>
     <div class="container">
         <h1>app principal</h1>
         @if ($errors->any())
@@ -23,13 +24,13 @@
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="icon-boxed">
-                    <span>Tratamiento</span><i class="fa fa-plus-square"></i>
+                <div class="icon-boxed" id="treatments-btn">
+                    <span><?php echo __('Tratamiento') ?></span><i class="fa fa-plus-square"></i>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="icon-boxed">
-                    <span>Proxima Cita</span><i class="fa fa-plus-square"></i>
+                    <span><?php echo __('Proxima Cita') ?></span><i class="fa fa-plus-square"></i>
                 </div>
             </div>
         </div>
@@ -94,5 +95,8 @@
         </div>
         <p><?php echo (!empty($pacient)) ? __('Hay paciente') : __('No hay paciente'); ?></p>
     </div>
+    @include('includes.treatments.treatmentsbox')
+    @include('includes.treatments.cuadrantesaddbox')
     <script src="{{asset('js/pacients/pacients.js')}}"></script>
+    <script src="{{asset('js/main/main.js')}}"></script>
 @endsection

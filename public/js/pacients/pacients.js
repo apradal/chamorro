@@ -16,7 +16,6 @@ CHA.formsearch = {
         this.getPacients();
     },
     getPacients: function () {
-        var that = this;
         this.pacientInput.autocomplete({
             source: function( request, response ) {
                 $.ajax( {
