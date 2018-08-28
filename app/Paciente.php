@@ -15,10 +15,17 @@ class Paciente extends Model
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     * get the users associate by id
+     * get fichaperiodontal associated to user
      */
     public function fichaperiodontal(){
         return $this->hasOne(FichaPeriodontal::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function cuadrantes() {
+        return $this->hasMany(Cuadrante::class);
     }
 
     public function create($inputs)
