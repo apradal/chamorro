@@ -26,12 +26,12 @@ class MainController extends Controller
     {
         $name = $request->input('pacient');
         if (session('pacient')) { //redirecting from ficha periodontal
-            return view('main')->with(array('pacient' => session('pacient'), 'card' => session('pacient')->fichaperiodontal));
+            return view('main')->with(array('pacient' => session('pacient')));
         } elseif (isset($name)) { //search from input
             $pacient = new Paciente;
             $name = str_replace(' ','', $name);
             if ($pacient = $pacient->getPacientByFullName($name)) {
-                return view('main')->with(array('pacient' => $pacient, 'card' => $pacient->fichaperiodontal));
+                return view('main')->with(array('pacient' => $pacient));
             } else {
                 return view('main')->withErrors(['El paciente ' . $name . ' no existe ne la base de datos']);
             }

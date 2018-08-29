@@ -37,51 +37,59 @@
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12">
                 Cuadrado con todos los tratamientos
+                <?php if (isset($pacient->cuadrantes)) : ?>
+                    <?php foreach ($pacient->cuadrantes as $cuadrante) : ?>
+                        <ul>
+                            <li><?php echo $cuadrante->date ?></li>
+                            <li><?php echo $cuadrante->observations ?></li>
+                        </ul>
+                    <?php endforeach;?>
+                <?php endif; ?>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <h2><?php echo __('Ficha Periodontal')?></h2>
                 <div class="pediodontic-info info-box">
-                    <?php if (isset($card)) : ?>
+                    <?php if (isset($pacient->fichaperiodontal)) : ?>
                         <ul>
                             <li>
                                 <p><?php echo __('Motivo consulta:')?></p>
-                                <p><?php echo (isset($card->reason)) ? $card->reason :  __('No hay información') ?></p>
+                                <p><?php echo (isset($pacient->fichaperiodontal->reason)) ? $pacient->fichaperiodontal->reason :  __('No hay información') ?></p>
                             </li>
                             <li>
                                 <p><?php echo __('Sintomas:')?></p>
-                                <p><?php echo (isset($card->symptom)) ? $card->symptom :  __('No hay información') ?></p>
+                                <p><?php echo (isset($pacient->fichaperiodontal->symptom)) ? $pacient->fichaperiodontal->symptom :  __('No hay información') ?></p>
                             </li>
                             <li>
                                 <p><?php echo __('Antecedentes familiares:')?></p>
-                                <p><?php echo (isset($card->family_background)) ? $card->family_background : __('Ninguno') ?></p>
+                                <p><?php echo (isset($pacient->fichaperiodontal->family_background)) ? $pacient->fichaperiodontal->family_background : __('Ninguno') ?></p>
                             </li>
                             <li>
                                 <p><?php echo __('Hábitos de higiene:')?></p>
-                                <p><?php echo (isset($card->habits)) ? $card->habits : __('No hay información') ?></p>
+                                <p><?php echo (isset($pacient->fichaperiodontal->habits)) ? $pacient->fichaperiodontal->habits : __('No hay información') ?></p>
                             </li>
                             <li>
                                 <p><?php echo __('Fumador:')?></p>
-                                <p><?php echo (isset($card->smoker_desc)) ? $card->smoker_desc : __('No') ?></p>
+                                <p><?php echo (isset($pacient->fichaperiodontal->smoker_desc)) ? $pacient->fichaperiodontal->smoker_desc : __('No') ?></p>
                             </li>
                             <li>
                                 <p><?php echo __('Estrés:')?></p>
-                                <p><?php echo (isset($card->stress_desc)) ? $card->stress_desc : __('No') ?></p>
+                                <p><?php echo (isset($pacient->fichaperiodontal->stress_desc)) ? $pacient->fichaperiodontal->stress_desc : __('No') ?></p>
                             </li>
                             <li>
                                 <p><?php echo __('Halitosis:')?></p>
-                                <p><?php echo (isset($card->halitosis_desc)) ? $card->halitosis_desc : __('No') ?></p>
+                                <p><?php echo (isset($pacient->fichaperiodontal->halitosis_desc)) ? $pacient->fichaperiodontal->halitosis_desc : __('No') ?></p>
                             </li>
                             <li>
                                 <p><?php echo __('Sensibilidad:')?></p>
-                                <p><?php echo (isset($card->sensitivity_desc)) ? $card->sensitivity_desc : __('No') ?></p>
+                                <p><?php echo (isset($pacient->fichaperiodontal->sensitivity_desc)) ? $pacient->fichaperiodontal->sensitivity_desc : __('No') ?></p>
                             </li>
                             <li>
                                 <p><?php echo __('Sensibilidad:')?></p>
-                                <p><?php echo (isset($card->sensitivity_desc)) ? $card->sensitivity_desc : __('No') ?></p>
+                                <p><?php echo (isset($pacient->fichaperiodontal->sensitivity_desc)) ? $pacient->fichaperiodontal->sensitivity_desc : __('No') ?></p>
                             </li>
                             <li>
                                 <p><?php echo __('Sensibilidad:')?></p>
-                                <p><?php echo (isset($card->bleeding_desc)) ? $card->bleeding_desc : __('No') ?></p>
+                                <p><?php echo (isset($pacient->fichaperiodontal->bleeding_desc)) ? $pacient->fichaperiodontal->bleeding_desc : __('No') ?></p>
                             </li>
                         </ul>
                     <?php endif; ?>
