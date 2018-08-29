@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth'], function (){
     Route::post('/cuadrante/add', 'CuadranteController@add')->name('cuadrante');
     Route::post('/revision/add', 'RevisionController@add')->name('revision');
     Route::post('/limpieza/add', 'LimpiezaController@add')->name('limpieza');
+    Route::post('/mantenimiento/add', 'MantenimientoController@add')->name('mantenimiento');
     /** Periodontics */
     Route::get('/periodontics', 'PeriodonticController@index')->name('periodontics');
     Route::get('/periodontics/card', 'PeriodonticController@card')->name('card');

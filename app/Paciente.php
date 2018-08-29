@@ -42,6 +42,13 @@ class Paciente extends Model
         return $this->hasMany(Limpieza::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function mantenimientos() {
+        return $this->hasMany(Mantenimiento::class);
+    }
+
 
     public function create($inputs)
     {

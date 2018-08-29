@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Paciente;
-use App\Limpieza;
+use App\Mantenimiento;
 
-class LimpiezaController extends Controller
+class MantenimientoController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -31,25 +31,25 @@ class LimpiezaController extends Controller
             'date' => 'required',
         ];
         $messages = [
-            'date.required' => 'Debe indicar fecha de limpieza.'
+            'date.required' => 'Debe indicar fecha de mantenimiento.'
         ];
         $validator = Validator::make($request->all(),$rules,$messages);
         //if something is wrong
         if ($validator->fails()){
             return redirect('/main')->withErrors($validator)->withInput();
         } else {
-            $limpieza = new Limpieza;
-            $limpieza = $limpieza->create($inputs);
-            if ($limpieza) {
+            $mantenimiento = new Mantenimiento;
+            $mantenimiento = $mantenimiento->create($inputs);
+            if ($mantenimiento) {
                 $pacient = new Paciente;
                 $pacient = $pacient->find($inputs['paciente_id']);
                 if ($pacient->getAttribute('id')) {
-                    $limpieza->paciente()->associate($pacient)->save();
-                    $pacient->limpiezas()->save($limpieza);
+                    $mantenimiento->paciente()->associate($pacient)->save();
+                    $pacient->mantenimientos()->save($mantenimiento);
                 }
-                return redirect()->route('main')->with(['pacient' => $pacient, 'message' => 'Limpieza creada con éxito.']);
+                return redirect()->route('main')->with(['pacient' => $pacient, 'message' => 'Mantenimiento creada con éxito.']);
             } else {
-                return redirect()->back()->withErrors(['Error en la limpieza!']);
+                return redirect()->back()->withErrors(['Error en el mantenimiento   !']);
             }
         }
     }

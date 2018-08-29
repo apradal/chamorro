@@ -11629,7 +11629,10 @@ label {
   cursor: pointer;
 }
 
-#cuadrante-box-add {
+#revision-box-add,
+#limpieza-box-add,
+#cuadrante-box-add,
+#mantenimiento-box-add {
   z-index: 2;
   top: 50%;
   left: 50%;
@@ -11643,53 +11646,10 @@ label {
   padding: 25px;
 }
 
-#cuadrante-box-close {
-  font-size: 30px;
-  position: relative;
-  margin-bottom: 10px;
-  right: -500px;
-  top: 0;
-  cursor: pointer;
-}
-
-#revision-box-add {
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  position: absolute;
-  width: 80%;
-  background: white;
-  border-radius: 8px;
-  padding: 25px;
-}
-
-#revision-box-close {
-  font-size: 30px;
-  position: relative;
-  margin-bottom: 10px;
-  right: -500px;
-  top: 0;
-  cursor: pointer;
-}
-
-#limpieza-box-add {
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  position: absolute;
-  width: 80%;
-  background: white;
-  border-radius: 8px;
-  padding: 25px;
-}
-
-#limpieza-box-close {
+#revision-box-close,
+#limpieza-box-close,
+#cuadrante-box-close,
+#mantenimiento-box-close {
   font-size: 30px;
   position: relative;
   margin-bottom: 10px;

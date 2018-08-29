@@ -20,6 +20,9 @@ CHA.main = {
     limpiezaBtn: $("#limpieza-btn"),
     limpiezaFormBox: $("#limpieza-box-add"),
     closeLimpiezaBtn: $("#limpieza-box-close"),
+    mantenimientoBtn: $("#mantenimiento-btn"),
+    mantenimientoFormBox: $("#mantenimiento-box-add"),
+    closeMantenimientoBtn: $("#mantenimiento-box-close"),
 
     init: function () {
         this.events();
@@ -29,6 +32,7 @@ CHA.main = {
         this.showHideCuadrantes();
         this.showHideRevisions();
         this.showHideLimpiezas();
+        this.showHideMantenimientos();
     },
     showHideTreatments: function () {
         var that = this;
@@ -76,6 +80,18 @@ CHA.main = {
         });
         this.closeLimpiezaBtn.on('click', function () {
             that.limpiezaFormBox.fadeOut(500);
+            that.blockBackground.fadeOut(500);
+        })
+    },
+    showHideMantenimientos: function () {
+        var that = this;
+        this.mantenimientoBtn.on('click', function () {
+            that.mantenimientoFormBox.fadeIn(500);
+            that.mantenimientoFormBox.removeClass("hidden");
+            that.treatmentsBox.fadeOut(0);
+        });
+        this.closeMantenimientoBtn.on('click', function () {
+            that.mantenimientoFormBox.fadeOut(500);
             that.blockBackground.fadeOut(500);
         })
     }

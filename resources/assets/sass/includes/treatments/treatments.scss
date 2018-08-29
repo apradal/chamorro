@@ -1,4 +1,4 @@
-#revision-box-add {
+#revision-box-add, #limpieza-box-add, #cuadrante-box-add, #mantenimiento-box-add {
   z-index: 2;
   top: 50%;
   left: 50%;
@@ -11,7 +11,7 @@
   padding: 25px;
 }
 
-#revision-box-close {
+#revision-box-close, #limpieza-box-close, #cuadrante-box-close, #mantenimiento-box-close {
   font-size: 30px;
   position: relative;
   margin-bottom: 10px;
