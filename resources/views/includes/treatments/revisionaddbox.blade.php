@@ -1,11 +1,6 @@
-<div id="cuadrante-box-add" class="hidden">
-    <i class="fa fa-times-circle icon" id="cuadrante-box-close"></i>
-    {!! Form::open(['url' => '/cuadrante/add', 'method' => 'POST']) !!}
-    <input type="radio" name="pattern" value="dibujo1">dibujo1
-    <input type="radio" name="pattern" value="dibujo2">dibujo2
-    <input type="radio" name="pattern" value="dibujo3">dibujo3
-    <input type="radio" name="pattern" value="dibujo4">dibujo4
-    <br>
+<div id="revision-box-add" class="hidden">
+    <i class="fa fa-times-circle icon" id="revision-box-close"></i>
+    {!! Form::open(['url' => '/revision/add', 'method' => 'POST']) !!}
     <label for="date"><?php echo __('Fecha:') ?></label>
     <input type="date" name="date" id="date" value="<?php echo Carbon\Carbon::now()->format('Y-m-d'); ?>">
     <br>

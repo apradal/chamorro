@@ -26,8 +26,9 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/main', 'MainController@index')->name('main');
-    /** Cuadrante */
+    /** Tratamientos */
     Route::post('/cuadrante/add', 'CuadranteController@add')->name('cuadrante');
+    Route::post('/revision/add', 'RevisionController@add')->name('revision');
     /** Periodontics */
     Route::get('/periodontics', 'PeriodonticController@index')->name('periodontics');
     Route::get('/periodontics/card', 'PeriodonticController@card')->name('card');

@@ -28,6 +28,14 @@ class Paciente extends Model
         return $this->hasMany(Cuadrante::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function revisions() {
+        return $this->hasMany(Revision::class);
+    }
+
+
     public function create($inputs)
     {
         if (!$this->checkPacientBeforeCreate($inputs)){

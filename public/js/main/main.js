@@ -14,6 +14,9 @@ CHA.main = {
     cuadranteBtn: $("#cuadrante-btn"),
     cuadranteFormBox: $("#cuadrante-box-add"),
     closeCuadranteBtn: $("#cuadrante-box-close"),
+    revisionBtn: $("#revision-btn"),
+    revisionFormBox: $("#revision-box-add"),
+    closeRevisionBtn: $("#revision-box-close"),
 
     init: function () {
         this.events();
@@ -21,6 +24,7 @@ CHA.main = {
     events: function () {
         this.showHideTreatments();
         this.showHideCuadrantes();
+        this.showHideRevisions();
     },
     showHideTreatments: function () {
         var that = this;
@@ -44,6 +48,18 @@ CHA.main = {
         });
         this.closeCuadranteBtn.on('click', function () {
             that.cuadranteFormBox.fadeOut(500);
+            that.blockBackground.fadeOut(500);
+        })
+    },
+    showHideRevisions: function () {
+        var that = this;
+        this.revisionBtn.on('click', function () {
+            that.revisionFormBox.fadeIn(500);
+            that.revisionFormBox.removeClass("hidden");
+            that.treatmentsBox.fadeOut(0);
+        });
+        this.closeRevisionBtn.on('click', function () {
+            that.revisionFormBox.fadeOut(500);
             that.blockBackground.fadeOut(500);
         })
     }

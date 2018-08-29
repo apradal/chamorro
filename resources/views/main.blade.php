@@ -44,6 +44,7 @@
                             <li><?php echo $cuadrante->observations ?></li>
                         </ul>
                     <?php endforeach;?>
+                    <?php //echo $pacient->revisions; ?>
                 <?php endif; ?>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -103,8 +104,10 @@
         </div>
         <p><?php echo (!empty($pacient)) ? __('Hay paciente') : __('No hay paciente'); ?></p>
     </div>
+    <!-- Includes -->
     @include('includes.treatments.treatmentsbox')
     @include('includes.treatments.cuadrantesaddbox')
+    @include('includes.treatments.revisionaddbox')
     <script src="{{asset('js/pacients/pacients.js')}}"></script>
     <script src="{{asset('js/main/main.js')}}"></script>
 @endsection
