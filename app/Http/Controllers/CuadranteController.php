@@ -51,7 +51,7 @@ class CuadranteController extends Controller
                     $pacient->cuadrantes()->save($cuadrante);
                 }
                 //TODO redirect a main con mensaje y paciente, una vez en main cargar todo del usuario.
-                return redirect()->route('main')->with('pacient', $pacient);
+                return redirect()->route('main')->with(['pacient' => $pacient, 'message' => 'Cuadrante creado con éxito.']);
             } else {
                 return redirect()->back()->withErrors(['El cuadrante ha dado error!']);
             }
