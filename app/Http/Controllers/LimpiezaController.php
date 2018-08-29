@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Paciente;
-use App\Revision;
+use App\Limpieza;
 
-class RevisionController extends Controller
+class LimpiezaController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -38,14 +38,14 @@ class RevisionController extends Controller
         if ($validator->fails()){
             return redirect('/main')->withErrors($validator)->withInput();
         } else {
-            $revision = new Revision;
-            $revision = $revision->create($inputs);
-            if ($revision) {
+            $limpieza = new Limpieza;
+            $limpieza = $limpieza->create($inputs);
+            if ($limpieza) {
                 $pacient = new Paciente;
                 $pacient = $pacient->find($inputs['paciente_id']);
                 if ($pacient->getAttribute('id')) {
-                    $revision->paciente()->associate($pacient)->save();
-                    $pacient->revisions()->save($revision);
+                    $limpieza->paciente()->associate($pacient)->save();
+                    $pacient->limpiezas()->save($limpieza);
                 }
                 return redirect()->route('main')->with(['pacient' => $pacient, 'message' => 'Revisión creada con éxito.']);
             } else {

@@ -17,6 +17,9 @@ CHA.main = {
     revisionBtn: $("#revision-btn"),
     revisionFormBox: $("#revision-box-add"),
     closeRevisionBtn: $("#revision-box-close"),
+    limpiezaBtn: $("#limpieza-btn"),
+    limpiezaFormBox: $("#limpieza-box-add"),
+    closeLimpiezaBtn: $("#limpieza-box-close"),
 
     init: function () {
         this.events();
@@ -25,6 +28,7 @@ CHA.main = {
         this.showHideTreatments();
         this.showHideCuadrantes();
         this.showHideRevisions();
+        this.showHideLimpiezas();
     },
     showHideTreatments: function () {
         var that = this;
@@ -60,6 +64,18 @@ CHA.main = {
         });
         this.closeRevisionBtn.on('click', function () {
             that.revisionFormBox.fadeOut(500);
+            that.blockBackground.fadeOut(500);
+        })
+    },
+    showHideLimpiezas: function () {
+        var that = this;
+        this.limpiezaBtn.on('click', function () {
+            that.limpiezaFormBox.fadeIn(500);
+            that.limpiezaFormBox.removeClass("hidden");
+            that.treatmentsBox.fadeOut(0);
+        });
+        this.closeLimpiezaBtn.on('click', function () {
+            that.limpiezaFormBox.fadeOut(500);
             that.blockBackground.fadeOut(500);
         })
     }

@@ -108,6 +108,7 @@
     @include('includes.treatments.treatmentsbox')
     @include('includes.treatments.cuadrantesaddbox')
     @include('includes.treatments.revisionaddbox')
+    @include('includes.treatments.limpiezaaddbox')
     <script src="{{asset('js/pacients/pacients.js')}}"></script>
     <script src="{{asset('js/main/main.js')}}"></script>
 @endsection
