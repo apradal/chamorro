@@ -1,3 +1,4 @@
+<?php use App\Http\Controllers\MainController; ?>
 @extends('layouts.app')
 
 @section('content')
@@ -36,20 +37,28 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12">
-                Cuadrado con todos los tratamientos
-                <?php if (isset($pacient->cuadrantes)) : ?>
-                    <?php foreach ($pacient->cuadrantes as $cuadrante) : ?>
-                        <ul>
-                            <li><?php echo $cuadrante->date ?></li>
-                            <li><?php echo $cuadrante->observations ?></li>
+                <h2><?php echo __('Tratamientos')?></h2>
+                <div id="treatment-info">
+                    <?php if (isset($pacient)) $treatments = MainController::groupTreatments($pacient); ?>
+                    <?php if (isset($treatments) && count($treatments) > 0) : ?>
+                        <?php foreach ($treatments as $treatment) : ?>
+                        <ul <?php echo (isset($treatment['class'])) ? 'class="' . $treatment['class'] . '"' : 'class="list-no-active"'; ?>>
+                            <li class="treatments-box-list-header <?php echo $treatment['treatment']; ?>">
+                                <span class="treatments-list-title"><?php echo $treatment['treatment']; ?></span>
+                                <span class="treatments-list-date"><?php echo $treatment['date']; ?></span>
+                            </li>
+                            <li class="treatments-list-observations <?php if (isset($treatment['treatment'])) echo $treatment['treatment'] . '-list'; ?>">
+                                <?php echo $treatment['observations'] ?>
+                            </li>
                         </ul>
-                    <?php endforeach;?>
-                <?php endif; ?>
+                        <?php endforeach;?>
+                    <?php endif; ?>
+                </div>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <h2><?php echo __('Ficha Periodontal')?></h2>
-                <div class="pediodontic-info info-box">
-                    <?php if (isset($pacient->fichaperiodontal)) : ?>
+                <div id="pediodontic-info" class="info-box">
+                    <?php if (isset($pacient) && isset($pacient->fichaperiodontal)) : ?>
                         <ul>
                             <li>
                                 <p><?php echo __('Motivo consulta:')?></p>
@@ -101,7 +110,6 @@
                 mostrar Proxima cita
             </div>
         </div>
-        <p><?php echo (!empty($pacient)) ? __('Hay paciente') : __('No hay paciente'); ?></p>
     </div>
     <!-- Includes -->
     @include('includes.treatments.treatmentsbox')

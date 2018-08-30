@@ -29,6 +29,7 @@ CHA.main = {
     },
     events: function () {
         this.showHideTreatments();
+        this.showHideTreatmentsList();
         this.showHideCuadrantes();
         this.showHideRevisions();
         this.showHideLimpiezas();
@@ -45,6 +46,12 @@ CHA.main = {
         this.closeTreatmentsBoxBtn.on('click', function () {
             that.treatmentsBox.fadeOut(500);
             that.blockBackground.fadeOut(500);
+        })
+    },
+    showHideTreatmentsList: function () {
+        var treatmentListHeader = $('.treatments-box-list-header');
+        treatmentListHeader.on('click', function () {
+           $(this).parent().toggleClass('list-no-active');
         })
     },
     showHideCuadrantes: function () {

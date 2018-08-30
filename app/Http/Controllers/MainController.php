@@ -39,4 +39,62 @@ class MainController extends Controller
             return view('main');
         }
     }
+
+    public static function groupTreatments($pacient)
+    {
+        $main = new MainController();
+        return $main->orderTreatments($pacient);
+
+    }
+
+    private function orderTreatments($pacient)
+    {
+        $orderedTreatmens = array();
+
+        if (count($pacient->cuadrantes->all()) > 0) {
+            foreach ($pacient->cuadrantes as $cuadrante) {
+                $orderedTreatmens[] = array(
+                    'pattern' => $cuadrante->getAttribute('pattern'),
+                    'date' => $cuadrante->getAttribute('date'),
+                    'observations' => $cuadrante->getAttribute('observations'),
+                    'treatment' => 'cuadrante'
+                );
+            }
+        }
+        if (count($pacient->limpiezas->all()) > 0) {
+            foreach ($pacient->limpiezas as $limpieza) {
+                $orderedTreatmens[] = array(
+                    'date' => $limpieza->getAttribute('date'),
+                    'observations' => $limpieza->getAttribute('observations'),
+                    'treatment' => 'limpieza'
+                );
+            }
+        }
+        if (count($pacient->revisions->all()) > 0) {
+            foreach ($pacient->revisions as $revision) {
+                $orderedTreatmens[] = array(
+                    'date' => $revision->getAttribute('date'),
+                    'observations' => $revision->getAttribute('observations'),
+                    'treatment' => 'revision'
+                );
+            }
+        }
+        if (count($pacient->mantenimientos->all()) > 0) {
+            foreach ($pacient->mantenimientos as $mantenimiento) {
+                $orderedTreatmens[] = array(
+                    'date' => $mantenimiento->getAttribute('date'),
+                    'observations' => $mantenimiento->getAttribute('observations'),
+                    'treatment' => 'mantenimiento'
+                );
+            }
+        }
+
+        usort($orderedTreatmens, function ($a, $b) {
+            return $a['date'] <= $b['date'];
+        });
+
+        $orderedTreatmens[0]['class'] = 'list-active';
+
+        return $orderedTreatmens;
+    }
 }

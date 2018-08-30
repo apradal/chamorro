@@ -87,7 +87,70 @@
   cursor: pointer;
 }
 
+// Treatments List
+#treatment-info {
+  //header
+  .list-no-active {
+    .treatments-list-observations {
+      display: none;
+      &.revision-list {
+        background-color: darkgreen;
+      }
+      &.mantenimiento-list {
+        background-color: orange;
+      }
+      &.cuadrante-list {
+        background-color: red;
+      }
+      &.limpieza-list {
+        background-color: $dark-blue;
+      }
+    }
+  }
+  .treatments-list-observations {
+    color: $black;
+    &.revision-list {
+      background-color: darkgreen;
+    }
+    &.mantenimiento-list {
+      background-color: orange;
+    }
+    &.cuadrante-list {
+      background-color: red;
+    }
+    &.limpieza-list {
+      background-color: $soft-blue;
+    }
+  }
+  .treatments-box-list-header {
+    font-weight: bold;
+    color: $white;
+    padding: 5px;
+    &.cuadrante {
+      background-color: red;
+    }
+    &.limpieza {
+      background-color: $dark-blue;
+    }
+    &.revision {
+      background-color: darkgreen;
+    }
+    &.mantenimiento {
+      background-color: orange;
+    }
+    cursor: pointer;
+    .treatments-list-title {
+      text-transform: capitalize;
+    }
+    .treatments-list-date{
+      float: right;
+    }
+  }
+}
+
 
 @media screen and (min-width: 992px) {
-
+  #treatment-info {
+    width: 90%;
+  }
 }

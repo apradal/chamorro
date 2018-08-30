@@ -11629,6 +11629,83 @@ label {
   cursor: pointer;
 }
 
+#treatment-info .list-no-active .treatments-list-observations {
+  display: none;
+}
+
+#treatment-info .list-no-active .treatments-list-observations.revision-list {
+  background-color: darkgreen;
+}
+
+#treatment-info .list-no-active .treatments-list-observations.mantenimiento-list {
+  background-color: orange;
+}
+
+#treatment-info .list-no-active .treatments-list-observations.cuadrante-list {
+  background-color: red;
+}
+
+#treatment-info .list-no-active .treatments-list-observations.limpieza-list {
+  background-color: #034f84;
+}
+
+#treatment-info .treatments-list-observations {
+  color: #000;
+}
+
+#treatment-info .treatments-list-observations.revision-list {
+  background-color: darkgreen;
+}
+
+#treatment-info .treatments-list-observations.mantenimiento-list {
+  background-color: orange;
+}
+
+#treatment-info .treatments-list-observations.cuadrante-list {
+  background-color: red;
+}
+
+#treatment-info .treatments-list-observations.limpieza-list {
+  background-color: #92a8d1;
+}
+
+#treatment-info .treatments-box-list-header {
+  font-weight: bold;
+  color: #fff;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#treatment-info .treatments-box-list-header.cuadrante {
+  background-color: red;
+}
+
+#treatment-info .treatments-box-list-header.limpieza {
+  background-color: #034f84;
+}
+
+#treatment-info .treatments-box-list-header.revision {
+  background-color: darkgreen;
+}
+
+#treatment-info .treatments-box-list-header.mantenimiento {
+  background-color: orange;
+}
+
+#treatment-info .treatments-box-list-header .treatments-list-title {
+  text-transform: capitalize;
+}
+
+#treatment-info .treatments-box-list-header .treatments-list-date {
+  float: right;
+}
+
+@media screen and (min-width: 992px) {
+  #treatment-info {
+    width: 90%;
+  }
+}
+
 #revision-box-add,
 #limpieza-box-add,
 #cuadrante-box-add,
