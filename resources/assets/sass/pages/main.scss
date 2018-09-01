@@ -94,13 +94,13 @@
     .treatments-list-observations {
       display: none;
       &.revision-list {
-        background-color: darkgreen;
+        background-color: $dark-green;
       }
       &.mantenimiento-list {
-        background-color: orange;
+        background-color: $dark-brown;
       }
       &.cuadrante-list {
-        background-color: red;
+        background-color: $dark-red;
       }
       &.limpieza-list {
         background-color: $dark-blue;
@@ -109,17 +109,30 @@
   }
   .treatments-list-observations {
     color: $black;
+    padding: 5px 2px;
     &.revision-list {
-      background-color: darkgreen;
+      background-color: $soft-green;
+      border-left: 2px solid $dark-green;
+      border-right: 2px solid $dark-green;
+      border-bottom: 2px solid $dark-green;
     }
     &.mantenimiento-list {
-      background-color: orange;
+      background-color: $soft-brown;
+      border-left: 2px solid $dark-brown;
+      border-right: 2px solid $dark-brown;
+      border-bottom: 2px solid $dark-brown;
     }
     &.cuadrante-list {
-      background-color: red;
+      background-color: $soft-red;
+      border-left: 2px solid $dark-red;
+      border-right: 2px solid $dark-red;
+      border-bottom: 2px solid $dark-red;
     }
     &.limpieza-list {
       background-color: $soft-blue;
+      border-left: 2px solid $dark-blue;
+      border-right: 2px solid $dark-blue;
+      border-bottom: 2px solid $dark-blue;
     }
   }
   .treatments-box-list-header {

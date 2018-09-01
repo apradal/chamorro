@@ -48,7 +48,7 @@
                                 <span class="treatments-list-date"><?php echo $treatment['date']; ?></span>
                             </li>
                             <li class="treatments-list-observations <?php if (isset($treatment['treatment'])) echo $treatment['treatment'] . '-list'; ?>">
-                                <?php echo $treatment['observations'] ?>
+                                <span class="bold">Observaciones:</span><br><?php echo $treatment['observations'] ?>
                             </li>
                         </ul>
                         <?php endforeach;?>
