@@ -11637,22 +11637,6 @@ label {
   display: none;
 }
 
-#treatment-info .list-no-active .treatments-list-observations.revision-list {
-  background-color: #405d27;
-}
-
-#treatment-info .list-no-active .treatments-list-observations.mantenimiento-list {
-  background-color: #b9936c;
-}
-
-#treatment-info .list-no-active .treatments-list-observations.cuadrante-list {
-  background-color: #c94c4c;
-}
-
-#treatment-info .list-no-active .treatments-list-observations.limpieza-list {
-  background-color: #034f84;
-}
-
 #treatment-info .treatments-list-observations {
   color: #000;
   padding: 5px 2px;
@@ -11694,7 +11678,7 @@ label {
 }
 
 #treatment-info .treatments-box-list-header.cuadrante {
-  background-color: red;
+  background-color: #c94c4c;
 }
 
 #treatment-info .treatments-box-list-header.limpieza {
@@ -11702,11 +11686,11 @@ label {
 }
 
 #treatment-info .treatments-box-list-header.revision {
-  background-color: darkgreen;
+  background-color: #405d27;
 }
 
 #treatment-info .treatments-box-list-header.mantenimiento {
-  background-color: orange;
+  background-color: #b9936c;
 }
 
 #treatment-info .treatments-box-list-header .treatments-list-title {

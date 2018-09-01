@@ -93,18 +93,6 @@
   .list-no-active {
     .treatments-list-observations {
       display: none;
-      &.revision-list {
-        background-color: $dark-green;
-      }
-      &.mantenimiento-list {
-        background-color: $dark-brown;
-      }
-      &.cuadrante-list {
-        background-color: $dark-red;
-      }
-      &.limpieza-list {
-        background-color: $dark-blue;
-      }
     }
   }
   .treatments-list-observations {
@@ -140,16 +128,16 @@
     color: $white;
     padding: 5px;
     &.cuadrante {
-      background-color: red;
+      background-color: $dark-red;
     }
     &.limpieza {
       background-color: $dark-blue;
     }
     &.revision {
-      background-color: darkgreen;
+      background-color: $dark-green;
     }
     &.mantenimiento {
-      background-color: orange;
+      background-color: $dark-brown;
     }
     cursor: pointer;
     .treatments-list-title {
