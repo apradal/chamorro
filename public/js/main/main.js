@@ -9,8 +9,11 @@ CHA.main = {
 
     treatmentsBtn: $("#treatments-btn"),
     treatmentsBox: $("#treatments-box"),
+    nextDatesBtn: $("#next-dates-btn"),
+    nextDatesBox: $("#next-dates-box"),
     blockBackground: $(".block-background"),
     closeTreatmentsBoxBtn: $("#treatments-box-close"),
+    closeNextDatesBoxBtn: $("#next-dates-box-close"),
     cuadranteBtn: $("#cuadrante-btn"),
     cuadranteFormBox: $("#cuadrante-box-add"),
     closeCuadranteBtn: $("#cuadrante-box-close"),
@@ -30,6 +33,7 @@ CHA.main = {
     events: function () {
         this.showHideTreatments();
         this.showHideTreatmentsList();
+        this.showHideDates();
         this.showHideCuadrantes();
         this.showHideRevisions();
         this.showHideLimpiezas();
@@ -45,6 +49,19 @@ CHA.main = {
         });
         this.closeTreatmentsBoxBtn.on('click', function () {
             that.treatmentsBox.fadeOut(500);
+            that.blockBackground.fadeOut(500);
+        })
+    },
+    showHideDates: function () {
+        var that = this;
+        this.nextDatesBtn.on('click', function () {
+            that.nextDatesBox.fadeIn(800);
+            that.nextDatesBox.removeClass("hidden");
+            that.blockBackground.fadeIn(500);
+            that.blockBackground.removeClass("hidden");
+        });
+        this.closeNextDatesBoxBtn.on('click', function () {
+            that.nextDatesBox.fadeOut(500);
             that.blockBackground.fadeOut(500);
         })
     },

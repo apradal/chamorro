@@ -11576,7 +11576,8 @@ label {
   overflow: auto;
 }
 
-.treatments-box {
+.treatments-box,
+.next-dates-box {
   z-index: 2;
   top: 50%;
   left: 50%;
@@ -11620,11 +11621,13 @@ label {
   border: 1px solid #636B6F;
 }
 
-#treatments-box-ul li {
+#treatments-box-ul li,
+#next-dates-ul li {
   margin: 20px 0;
 }
 
-#treatments-box-close {
+#treatments-box-close,
+#next-dates-box-close {
   font-size: 30px;
   position: relative;
   margin-bottom: 10px;
@@ -11699,6 +11702,11 @@ label {
 
 #treatment-info .treatments-box-list-header .treatments-list-date {
   float: right;
+}
+
+.svg-cuadrante {
+  padding-left: 5px;
+  vertical-align: sub;
 }
 
 @media screen and (min-width: 992px) {

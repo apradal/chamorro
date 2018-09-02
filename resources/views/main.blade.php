@@ -30,28 +30,31 @@
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="icon-boxed">
+                <div class="icon-boxed" id="next-dates-btn">
                     <span><?php echo __('Proxima Cita') ?></span><i class="fa fa-plus-square"></i>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12">
-                <h2><?php echo __('Tratamientos')?></h2>
+                <h2><?php echo __('Histórico Tratamientos')?></h2>
                 <div id="treatment-info">
                     <?php if (isset($pacient)) $treatments = MainController::groupTreatments($pacient); ?>
                     <?php if (isset($treatments) && count($treatments) > 0) : ?>
-                        <?php foreach ($treatments as $treatment) : ?>
-                        <ul <?php echo (isset($treatment['class'])) ? 'class="' . $treatment['class'] . '"' : 'class="list-no-active"'; ?>>
-                            <li class="treatments-box-list-header <?php echo $treatment['treatment']; ?>">
-                                <span class="treatments-list-title"><?php echo $treatment['treatment']; ?></span>
-                                <span class="treatments-list-date"><?php echo $treatment['date']; ?></span>
-                            </li>
-                            <li class="treatments-list-observations <?php if (isset($treatment['treatment'])) echo $treatment['treatment'] . '-list'; ?>">
-                                <span class="bold">Observaciones:</span><br><?php echo $treatment['observations'] ?>
-                            </li>
-                        </ul>
-                        <?php endforeach;?>
+                    <?php foreach ($treatments as $treatment) : ?>
+                    <ul <?php echo (isset($treatment['class'])) ? 'class="' . $treatment['class'] . '"' : 'class="list-no-active"'; ?>>
+                        <li class="treatments-box-list-header <?php echo $treatment['treatment']; ?>">
+                            <span class="treatments-list-title"><?php echo $treatment['treatment']; ?></span>
+                            <?php if ($treatment['treatment'] === 'cuadrante') : ?>
+                            @include('includes.treatments.cuadrantessvg')
+                            <?php endif; ?>
+                            <span class="treatments-list-date"><?php echo $treatment['date']; ?></span>
+                        </li>
+                        <li class="treatments-list-observations <?php if (isset($treatment['treatment'])) echo $treatment['treatment'] . '-list'; ?>">
+                            <span class="bold">Observaciones:</span><br><?php echo $treatment['observations'] ?>
+                        </li>
+                    </ul>
+                    <?php endforeach;?>
                     <?php endif; ?>
                 </div>
             </div>
@@ -117,6 +120,7 @@
     @include('includes.treatments.revisionaddbox')
     @include('includes.treatments.limpiezaaddbox')
     @include('includes.treatments.mantenimientoaddbox')
+    @include('includes.dates.nextdatebox')
     <script src="{{asset('js/pacients/pacients.js')}}"></script>
     <script src="{{asset('js/main/main.js')}}"></script>
 @endsection

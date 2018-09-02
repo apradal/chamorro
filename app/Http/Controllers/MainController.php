@@ -93,7 +93,7 @@ class MainController extends Controller
             return $a['date'] <= $b['date'];
         });
 
-        $orderedTreatmens[0]['class'] = 'list-active';
+        if (count($orderedTreatmens) > 0) $orderedTreatmens[0]['class'] = 'list-active';
 
         return $orderedTreatmens;
     }
