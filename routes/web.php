@@ -19,7 +19,7 @@ Route::group(['middleware' => 'auth'], function (){
     $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
     $this->post('register', 'Auth\RegisterController@register');
 
-    //TODO empezar con la app principal y arreglar la pantalla de usuarios.
+    //TODO Mostrar la fecha next date al ser creada en el main
 
 
     /** General Application */
@@ -31,6 +31,8 @@ Route::group(['middleware' => 'auth'], function (){
     Route::post('/revision/add', 'RevisionController@add')->name('revision');
     Route::post('/limpieza/add', 'LimpiezaController@add')->name('limpieza');
     Route::post('/mantenimiento/add', 'MantenimientoController@add')->name('mantenimiento');
+    /** Fechas citas */
+    Route::post('/nextdate/addTreatment', 'DateController@addTreatment')->name('nextdate');
     /** Periodontics */
     Route::get('/periodontics', 'PeriodonticController@index')->name('periodontics');
     Route::get('/periodontics/card', 'PeriodonticController@card')->name('card');

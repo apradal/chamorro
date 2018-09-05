@@ -49,6 +49,12 @@ class Paciente extends Model
         return $this->hasMany(Mantenimiento::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function nextdates() {
+        return $this->hasMany(NextDate::class);
+    }
 
     public function create($inputs)
     {

@@ -26,6 +26,12 @@ CHA.main = {
     mantenimientoBtn: $("#mantenimiento-btn"),
     mantenimientoFormBox: $("#mantenimiento-box-add"),
     closeMantenimientoBtn: $("#mantenimiento-box-close"),
+    /** Next Date elemetns */
+    dateRevisionBtn: $("#next-dates-revision-btn"),
+    nextDateRevisionFormBox: $("#revision-date-box-add"),
+    closeNextDateRevisionBtn: $("#revision-date-box-close"),
+
+
 
     init: function () {
         this.events();
@@ -38,7 +44,9 @@ CHA.main = {
         this.showHideRevisions();
         this.showHideLimpiezas();
         this.showHideMantenimientos();
+        this.showHideNextDateRevisions();
     },
+    /** Main */
     showHideTreatments: function () {
         var that = this;
         this.treatmentsBtn.on('click', function () {
@@ -65,6 +73,7 @@ CHA.main = {
             that.blockBackground.fadeOut(500);
         })
     },
+    /** Tratments */
     showHideTreatmentsList: function () {
         var treatmentListHeader = $('.treatments-box-list-header');
         treatmentListHeader.on('click', function () {
@@ -118,7 +127,20 @@ CHA.main = {
             that.mantenimientoFormBox.fadeOut(500);
             that.blockBackground.fadeOut(500);
         })
-    }
+    },
+    /** Next dates */
+    showHideNextDateRevisions: function () {
+        var that = this;
+        this.dateRevisionBtn.on('click', function () {
+            that.nextDateRevisionFormBox.fadeIn(500);
+            that.nextDateRevisionFormBox.removeClass("hidden");
+            that.nextDatesBox.fadeOut(0);
+        });
+        this.closeNextDateRevisionBtn.on('click', function () {
+            that.nextDateRevisionFormBox.fadeOut(500);
+            that.blockBackground.fadeOut(500);
+        })
+    },
 };
 
 $(document).ready(function(){

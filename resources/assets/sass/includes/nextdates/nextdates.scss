@@ -1,0 +1,24 @@
+#revision-date-box-add, #limpieza-date-box-add, #mantenimiento-date-box-add {
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 80%;
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+  label {
+    width: auto;
+  }
+}
+
+#revision-date-box-close, #limpieza-date-box-close, #mantenimiento-date-box-close {
+  font-size: 30px;
+  position: relative;
+  margin-bottom: 10px;
+  right: -500px;
+  top: 0;
+  cursor: pointer;
+}

@@ -121,6 +121,7 @@
     @include('includes.treatments.limpiezaaddbox')
     @include('includes.treatments.mantenimientoaddbox')
     @include('includes.dates.nextdatebox')
+    @include('includes.dates.revisionadddatebox')
     <script src="{{asset('js/pacients/pacients.js')}}"></script>
     <script src="{{asset('js/main/main.js')}}"></script>
 @endsection
