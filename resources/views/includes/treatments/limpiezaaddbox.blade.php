@@ -1,5 +1,5 @@
 <div id="limpieza-box-add" class="hidden">
-    <i class="fa fa-times-circle icon" id="limpieza-box-close"></i>
+    <i class="fa fa-times-circle icon" id="limpieza-box-close" data-box="#limpieza-box-add"></i>
     {!! Form::open(['url' => '/limpieza/add', 'method' => 'POST']) !!}
     <label for="date"><?php echo __('Fecha:') ?></label>
     <input type="date" name="date" id="date" value="<?php echo Carbon\Carbon::now()->format('Y-m-d'); ?>">

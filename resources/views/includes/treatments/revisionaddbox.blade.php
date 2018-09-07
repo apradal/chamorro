@@ -1,5 +1,5 @@
 <div id="revision-box-add" class="hidden">
-    <i class="fa fa-times-circle icon" id="revision-box-close"></i>
+    <i class="fa fa-times-circle icon" id="revision-box-close" data-box="#revision-box-add"></i>
     {!! Form::open(['url' => '/revision/add', 'method' => 'POST']) !!}
     <label for="date"><?php echo __('Fecha:') ?></label>
     <input type="date" name="date" id="date" value="<?php echo Carbon\Carbon::now()->format('Y-m-d'); ?>">

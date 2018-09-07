@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class Paciente extends Model
 {
@@ -104,5 +105,15 @@ class Paciente extends Model
 
     }
 
+    public function getClosesNextDate() {
+        $today = Carbon::now()->format('Y-m-d');
+        $dates = $this->nextdates()
+            ->where('next_date', '>', $today)
+            ->orderBy('next_date')
+            ->limit(1)
+            ->first();
+
+        return $dates;
+    }
 
 }

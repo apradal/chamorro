@@ -1,5 +1,5 @@
 <div id="cuadrante-box-add" class="hidden">
-    <i class="fa fa-times-circle icon" id="cuadrante-box-close"></i>
+    <i class="fa fa-times-circle icon" id="cuadrante-box-close" data-box="#cuadrante-box-add"></i>
     {!! Form::open(['url' => '/cuadrante/add', 'method' => 'POST']) !!}
     <label for="pattern"><?php echo __('Cuadrante: ') ?></label>
     <input type="radio" name="pattern" value="cuadrante1">

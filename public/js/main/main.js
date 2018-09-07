@@ -7,6 +7,7 @@ if (typeof CHA == "undefined") {
 
 CHA.main = {
 
+    /** Main elements **/
     treatmentsBtn: $("#treatments-btn"),
     treatmentsBox: $("#treatments-box"),
     nextDatesBtn: $("#next-dates-btn"),
@@ -14,23 +15,22 @@ CHA.main = {
     blockBackground: $(".block-background"),
     closeTreatmentsBoxBtn: $("#treatments-box-close"),
     closeNextDatesBoxBtn: $("#next-dates-box-close"),
+    /** Treatment elements **/
     cuadranteBtn: $("#cuadrante-btn"),
-    cuadranteFormBox: $("#cuadrante-box-add"),
     closeCuadranteBtn: $("#cuadrante-box-close"),
     revisionBtn: $("#revision-btn"),
-    revisionFormBox: $("#revision-box-add"),
     closeRevisionBtn: $("#revision-box-close"),
     limpiezaBtn: $("#limpieza-btn"),
-    limpiezaFormBox: $("#limpieza-box-add"),
     closeLimpiezaBtn: $("#limpieza-box-close"),
     mantenimientoBtn: $("#mantenimiento-btn"),
-    mantenimientoFormBox: $("#mantenimiento-box-add"),
     closeMantenimientoBtn: $("#mantenimiento-box-close"),
     /** Next Date elemetns */
     dateRevisionBtn: $("#next-dates-revision-btn"),
-    nextDateRevisionFormBox: $("#revision-date-box-add"),
+    dateLimpiezaBtn: $("#next-dates-limpieza-btn"),
+    dateMantenimientoBtn: $("#next-dates-mantenimiento-btn"),
     closeNextDateRevisionBtn: $("#revision-date-box-close"),
-
+    closeNextDateLimpiezaBtn: $("#limpieza-date-box-close"),
+    closeNextDateMantenimientoBtn: $("#mantenimiento-date-box-close"),
 
 
     init: function () {
@@ -40,11 +40,11 @@ CHA.main = {
         this.showHideTreatments();
         this.showHideTreatmentsList();
         this.showHideDates();
-        this.showHideCuadrantes();
-        this.showHideRevisions();
+        this.showHideTreatmentsBox();
+        /*this.showHideRevisions();
         this.showHideLimpiezas();
-        this.showHideMantenimientos();
-        this.showHideNextDateRevisions();
+        this.showHideMantenimientos();*/
+        this.showHideNextDates();
     },
     /** Main */
     showHideTreatments: function () {
@@ -80,64 +80,32 @@ CHA.main = {
            $(this).parent().toggleClass('list-no-active');
         })
     },
-    showHideCuadrantes: function () {
+    showHideTreatmentsBox: function () {
         var that = this;
-        this.cuadranteBtn.on('click', function () {
-            that.cuadranteFormBox.fadeIn(500);
-            that.cuadranteFormBox.removeClass("hidden");
+        $(this.cuadranteBtn).add(this.revisionBtn).add(this.limpiezaBtn).add(this.mantenimientoBtn).on('click', function () {
+            var id = $(this.getAttribute('data-box'));
+            id.fadeIn(500);
+            id.removeClass("hidden");
             that.treatmentsBox.fadeOut(0);
         });
-        this.closeCuadranteBtn.on('click', function () {
-            that.cuadranteFormBox.fadeOut(500);
-            that.blockBackground.fadeOut(500);
-        })
-    },
-    showHideRevisions: function () {
-        var that = this;
-        this.revisionBtn.on('click', function () {
-            that.revisionFormBox.fadeIn(500);
-            that.revisionFormBox.removeClass("hidden");
-            that.treatmentsBox.fadeOut(0);
-        });
-        this.closeRevisionBtn.on('click', function () {
-            that.revisionFormBox.fadeOut(500);
-            that.blockBackground.fadeOut(500);
-        })
-    },
-    showHideLimpiezas: function () {
-        var that = this;
-        this.limpiezaBtn.on('click', function () {
-            that.limpiezaFormBox.fadeIn(500);
-            that.limpiezaFormBox.removeClass("hidden");
-            that.treatmentsBox.fadeOut(0);
-        });
-        this.closeLimpiezaBtn.on('click', function () {
-            that.limpiezaFormBox.fadeOut(500);
-            that.blockBackground.fadeOut(500);
-        })
-    },
-    showHideMantenimientos: function () {
-        var that = this;
-        this.mantenimientoBtn.on('click', function () {
-            that.mantenimientoFormBox.fadeIn(500);
-            that.mantenimientoFormBox.removeClass("hidden");
-            that.treatmentsBox.fadeOut(0);
-        });
-        this.closeMantenimientoBtn.on('click', function () {
-            that.mantenimientoFormBox.fadeOut(500);
+        $(this.closeCuadranteBtn).add(this.closeRevisionBtn).add(this.closeLimpiezaBtn).add(this.closeMantenimientoBtn).on('click', function () {
+            var id = $(this.getAttribute('data-box'));
+            id.fadeOut(500);
             that.blockBackground.fadeOut(500);
         })
     },
     /** Next dates */
-    showHideNextDateRevisions: function () {
+    showHideNextDates: function () {
         var that = this;
-        this.dateRevisionBtn.on('click', function () {
-            that.nextDateRevisionFormBox.fadeIn(500);
-            that.nextDateRevisionFormBox.removeClass("hidden");
+        $(this.dateRevisionBtn).add(this.dateLimpiezaBtn).add(this.dateMantenimientoBtn).on('click', function () {
+            var boxId = $(this.getAttribute('data-box'));
+            boxId.fadeIn(500);
+            boxId.removeClass("hidden");
             that.nextDatesBox.fadeOut(0);
         });
-        this.closeNextDateRevisionBtn.on('click', function () {
-            that.nextDateRevisionFormBox.fadeOut(500);
+        $(this.closeNextDateRevisionBtn).add(this.closeNextDateLimpiezaBtn).add(this.closeNextDateMantenimientoBtn).on('click', function () {
+            var id = $(this.getAttribute('data-box'));
+            id.fadeOut(500);
             that.blockBackground.fadeOut(500);
         })
     },
