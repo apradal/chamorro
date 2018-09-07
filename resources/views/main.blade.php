@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\MainController;
-use App\Http\Middleware\Utils;
 
 ?>
 @extends('layouts.app')

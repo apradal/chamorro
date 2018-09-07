@@ -41,9 +41,6 @@ CHA.main = {
         this.showHideTreatmentsList();
         this.showHideDates();
         this.showHideTreatmentsBox();
-        /*this.showHideRevisions();
-        this.showHideLimpiezas();
-        this.showHideMantenimientos();*/
         this.showHideNextDates();
     },
     /** Main */
