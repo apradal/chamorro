@@ -121,6 +121,7 @@ a:active {
 .generic-squares {
   text-align: center;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.22);
+  height: 300px;
   width: 260px;
   margin: 0 auto;
   background: $white;
@@ -130,12 +131,12 @@ a:active {
   margin-bottom: 100px;
   .icon-square {
     border-bottom: 1px solid gainsboro;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     font-size: 3em;
     .fas {
       background: steelblue;
       padding: 20px;
-      color: white;
+      color: $white;
       border-radius: 50%;
     }
   }
@@ -151,6 +152,20 @@ a:active {
     &:hover {
       color: gray;
       text-decoration: none;
+    }
+  }
+  &:hover {
+    .icon-square {
+      background-color: steelblue;
+      margin: -41px -20px 0 -20px;
+      padding: 41px 20px 20px 20px;
+      transition: background 0.5s;
+      border-radius: 2.5%;
+      .fas {
+        background: $white;
+        color: steelblue;
+        transition: background 0.5s;
+      }
     }
   }
 }

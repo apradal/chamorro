@@ -8492,6 +8492,7 @@ a:active {
   text-align: center;
   -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.22);
           box-shadow: 0 0 15px rgba(0, 0, 0, 0.22);
+  height: 300px;
   width: 260px;
   margin: 0 auto;
   background: #fff;
@@ -8503,14 +8504,14 @@ a:active {
 
 .generic-squares .icon-square {
   border-bottom: 1px solid gainsboro;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   font-size: 3em;
 }
 
 .generic-squares .icon-square .fas {
   background: steelblue;
   padding: 20px;
-  color: white;
+  color: #fff;
   border-radius: 50%;
 }
 
@@ -8530,6 +8531,22 @@ a:active {
 .generic-squares a:hover {
   color: gray;
   text-decoration: none;
+}
+
+.generic-squares:hover .icon-square {
+  background-color: steelblue;
+  margin: -41px -20px 0 -20px;
+  padding: 41px 20px 20px 20px;
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
+  border-radius: 2.5%;
+}
+
+.generic-squares:hover .icon-square .fas {
+  background: #fff;
+  color: steelblue;
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
 }
 
 /** Container **/

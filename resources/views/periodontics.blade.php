@@ -9,12 +9,12 @@
             <div class="cabecera-home">
                 <h1><?php echo __('La sonrisa es la curva de la felicidad!!!'); ?></h1>
                 <div class="separator-square">
-                    <div class="col-sm-6 col-xs-12">
+                    <div class="col-sm-4 col-xs-12">
                         <div class="generic-squares">
                             <div class="link-square">
                                 <a href="{{ url('/pacients/new') }}">
                                     <div class="icon-square">
-                                        <i class="fas fa-user-md"></i>
+                                        <i class="fas fa-user"></i>
                                     </div>
                                     <div class="link-square">
                                         <h2><?php echo __('Pacientes')?></h2>
@@ -24,7 +24,22 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xs-12">
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="generic-squares">
+                            <div class="link-square">
+                                <a href="{{ url('/main') }}">
+                                    <div class="icon-square">
+                                        <i class="fas fa-user-md"></i>
+                                    </div>
+                                    <div class="link-square">
+                                        <h2><?php echo __('Historico')?></h2>
+                                        <p><?php echo __('Información de tratamientos'); ?></p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
                         <div class="generic-squares">
                             <div class="link-square">
                                 <a href="{{ url('/periodontics/card') }}">
