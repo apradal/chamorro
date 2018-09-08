@@ -1,16 +1,26 @@
 .home {
   .navbar {
+    padding-bottom: 370px;
+    margin-bottom: -330px;
     &:before {
       background: url('/images/periodoncia.jpg') top center no-repeat;
       background-size: cover;
+    }
+    .container {
+      border-bottom: 1px solid $white;
     }
   }
 }
 .periodontics {
   .navbar {
+    padding-bottom: 370px;
+    margin-bottom: -330px;
     &:before {
       background: url('/images/desktop.jpg') top center no-repeat;
       background-size: cover;
+    }
+    .container {
+      border-bottom: 1px solid $white;
     }
   }
 }
@@ -18,8 +28,6 @@
   box-shadow: none;
   color: $white;
   position: relative;
-  padding-bottom: 370px;
-  margin-bottom: -330px;
   background-color: #1f648b;
   &:before {
     background-size: cover;
@@ -33,12 +41,11 @@
     height: 100%;
   }
   .container {
-    border-bottom: 1px solid $white;
-  }
-  .navbar-brand {
-    color: $white;
-    font-family: 'Pacifico', cursive;
-    font-size: 2em;
+    .navbar-brand {
+      color: $white;
+      font-family: 'Pacifico', cursive;
+      font-size: 2em;
+    }
   }
   .navbar-toggle {
     border-color: $white;

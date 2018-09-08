@@ -9,13 +9,14 @@
                     @endforeach
                 @endif
                 <div class="form" id="create-pacient-form">
+                    <h2><?php echo __('Crea/Edita usuarios'); ?></h2>
                     {!! Form::open(['url' => '/pacients/create', 'method' => 'GET']) !!}
-                    {{Form::label('name', 'Nombre: ')}}
-                    {{Form::text('name', '', ['placeholder' => 'Antonio, José*', 'maxlength' => '30'])}}
-                    {{Form::label('lastname', 'Apellidos: ')}}
-                    {{Form::text('lastname', '')}}
-                    {{Form::label('phone', 'Teléfono: ')}}
-                    {{Form::text('phone', '')}}
+                    {{--{{Form::label('name', 'Nombre: ')}}--}}
+                    {{Form::text('name', '', ['placeholder' => 'Nombre: ', 'maxlength' => '30'])}}
+                    {{--{{Form::label('lastname', 'Apellidos: ')}}--}}
+                    {{Form::text('lastname', '', ['placeholder' => 'Apellidos: '])}}
+                    {{--{{Form::label('phone', 'Teléfono: ')}}--}}
+                    {{Form::text('phone', '', ['placeholder' => 'Teléfono: '])}}
                     {{Form::submit('Crear')}}
                     {!! Form::close() !!}
                 </div>
