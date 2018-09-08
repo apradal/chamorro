@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-4 col-xs-12 col-md-offset-4">
+        <div class="col-md-12 col-xs-12">
             <div class="cabecera-home">
                 <h1><?php echo __('Consulta María Quero Chamorro'); ?></h1>
                 <p><?php echo __('Desde 1975 cuidando las bocas con la mayor profesionalidad posible y con la mejor atención de Zaragoza'); ?></p>

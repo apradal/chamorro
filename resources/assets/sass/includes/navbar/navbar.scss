@@ -1,3 +1,19 @@
+.home {
+  .navbar {
+    &:before {
+      background: url('/images/periodoncia.jpg') top center no-repeat;
+      background-size: cover;
+    }
+  }
+}
+.periodontics {
+  .navbar {
+    &:before {
+      background: url('/images/desktop.jpg') top center no-repeat;
+      background-size: cover;
+    }
+  }
+}
 .navbar {
   box-shadow: none;
   color: $white;
@@ -6,7 +22,6 @@
   margin-bottom: -330px;
   background-color: #1f648b;
   &:before {
-    background: url('/images/periodoncia.jpg') top center no-repeat;
     background-size: cover;
     content: "";
     display: block;
@@ -28,5 +43,8 @@
   .navbar-toggle {
     border-color: $white;
     background-color: $white;
+  }
+  .dropdown-toggle {
+    color: white !important;
   }
 }
