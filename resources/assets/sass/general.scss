@@ -111,3 +111,47 @@ ul {
   opacity: 0.5;
   z-index: 1;
 }
+
+/** Generic squares **/
+.generic-squares {
+  text-align: center;
+  width: 260px;
+  margin: 0 auto;
+  background: $white;
+  border-radius: 2.5%;
+  padding: 20px;
+  color: grey;
+  .icon-square {
+    border-bottom: 1px solid gainsboro;
+    padding-bottom: 10px;
+    font-size: 3em;
+    .fas {
+      background: steelblue;
+      padding: 20px;
+      color: white;
+      border-radius: 50%;
+    }
+  }
+  .link-square {
+    padding-top: 20px;
+    font-weight: bold;
+    p {
+      font-weight: normal;
+    }
+  }
+  a {
+    color: gray;
+    &:hover {
+      color: gray;
+      text-decoration: none;
+    }
+  }
+}
+
+/** Container **/
+#app {
+  .container {
+    position: relative;
+    z-index: 1000;
+  }
+}

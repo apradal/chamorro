@@ -1,7 +1,9 @@
 
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-@import "~font-awesome/scss/font-awesome.scss";
+@import url("https://fonts.googleapis.com/css?family=Pacifico");
+@import url("https://fonts.googleapis.com/css?family=Bree+Serif");
+@import url("https://use.fontawesome.com/releases/v5.3.1/css/all.css");
 
 // Variables
 @import "variables";
@@ -13,9 +15,13 @@
 @import "general";
 
 // Pages
+@import "pages/home";
 @import "pages/periodontics/card";
 @import "pages/main";
 
 //Includes
 @import "includes/treatments/treatments";
 @import "includes/nextdates/nextdates";
+
+//Navbar
+@import "includes/navbar/navbar";

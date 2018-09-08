@@ -18,7 +18,7 @@
     <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('js/jquery-ui.min.js')}}"></script>
 </head>
-<body>
+<body class="@yield('body_class')">
     <div id="app">
         @include('includes.navbar')
         @yield('content')

@@ -1,0 +1,32 @@
+.navbar {
+  box-shadow: none;
+  color: $white;
+  position: relative;
+  padding-bottom: 370px;
+  margin-bottom: -330px;
+  background-color: #1f648b;
+  &:before {
+    background: url('/images/periodoncia.jpg') top center no-repeat;
+    background-size: cover;
+    content: "";
+    display: block;
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .container {
+    border-bottom: 1px solid $white;
+  }
+  .navbar-brand {
+    color: $white;
+    font-family: 'Pacifico', cursive;
+    font-size: 2em;
+  }
+  .navbar-toggle {
+    border-color: $white;
+    background-color: $white;
+  }
+}
