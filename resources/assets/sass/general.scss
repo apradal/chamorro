@@ -105,6 +105,24 @@ a:active {
   text-decoration: none;
 }
 
+/** HEADER **/
+// title
+.cabecera-home {
+  @keyframes fadeIn{
+    0%{
+      transform: rotate(0) translateY(-100px);
+      opacity: 0;
+    }
+    100%{
+      transform: rotate(0) translateY(0);
+      opacity: 1;
+    }
+  }
+
+  animation: fadeIn 1s forwards 0s ease;
+}
+
+
 // BACKGROUND BLOCK
 .block-background {
   display: block;

@@ -8472,6 +8472,41 @@ a:active {
   text-decoration: none;
 }
 
+/** HEADER **/
+
+.cabecera-home {
+  -webkit-animation: fadeIn 1s forwards 0s ease;
+          animation: fadeIn 1s forwards 0s ease;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    -webkit-transform: rotate(0) translateY(-100px);
+            transform: rotate(0) translateY(-100px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: rotate(0) translateY(0);
+            transform: rotate(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    -webkit-transform: rotate(0) translateY(-100px);
+            transform: rotate(0) translateY(-100px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: rotate(0) translateY(0);
+            transform: rotate(0) translateY(0);
+    opacity: 1;
+  }
+}
+
 .block-background {
   display: block;
   position: fixed;
@@ -8747,7 +8782,8 @@ label {
   }
 }
 
-#create-pacient-form {
+#create-pacient-form,
+#edit-pacient-form {
   font-family: 'Open Sans Condensed', arial, sans;
   width: 500px;
   padding: 30px;
@@ -8757,7 +8793,8 @@ label {
           box-shadow: 0 0 15px rgba(0, 0, 0, 0.22);
 }
 
-#create-pacient-form h2 {
+#create-pacient-form h2,
+#edit-pacient-form h2 {
   background: steelblue;
   text-transform: uppercase;
   font-family: 'Open Sans Condensed', sans-serif;
@@ -8778,7 +8815,18 @@ label {
 #create-pacient-form input[type="url"],
 #create-pacient-form input[type="password"],
 #create-pacient-form textarea,
-#create-pacient-form select {
+#create-pacient-form select,
+#edit-pacient-form input[type="text"],
+#edit-pacient-form input[type="date"],
+#edit-pacient-form input[type="datetime"],
+#edit-pacient-form input[type="email"],
+#edit-pacient-form input[type="number"],
+#edit-pacient-form input[type="search"],
+#edit-pacient-form input[type="time"],
+#edit-pacient-form input[type="url"],
+#edit-pacient-form input[type="password"],
+#edit-pacient-form textarea,
+#edit-pacient-form select {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -8795,7 +8843,9 @@ label {
 }
 
 #create-pacient-form input[type="button"],
-#create-pacient-form input[type="submit"] {
+#create-pacient-form input[type="submit"],
+#edit-pacient-form input[type="button"],
+#edit-pacient-form input[type="submit"] {
   -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
   box-shadow: inset 0px 1px 0px 0px #1f648b;
   background-color: #1f648b;
@@ -8811,8 +8861,23 @@ label {
 }
 
 #create-pacient-form input[type="button"]:hover,
-#create-pacient-form input[type="submit"]:hover {
+#create-pacient-form input[type="submit"]:hover,
+#edit-pacient-form input[type="button"]:hover,
+#edit-pacient-form input[type="submit"]:hover {
   background-color: steelblue;
+}
+
+#edit-pacient-form {
+  background: transparent;
+  padding: 30px 30px 0 30px;
+  margin: 50px auto 0;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.22);
+}
+
+#edit-pacient-form input[type="text"] {
+  width: 79%;
+  display: inline-block;
 }
 
 #revision-box-add,

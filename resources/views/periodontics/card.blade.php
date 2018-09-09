@@ -21,8 +21,6 @@
                     {{Form::submit('Buscar')}}
                     {!! Form::close() !!}
                 </div>
-                <br/>
-                <br/>
             </div>
             <?php if (isset($pacient)) : ?>
                 <div class="col-xs-12">
