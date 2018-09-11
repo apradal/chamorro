@@ -17,6 +17,7 @@
                     {!! Form::open(['url' => '/periodontics/card', 'method' => 'GET']) !!}
                     <input placeholder="Paciente: ..." maxlength="40" id="pacient" name="pacient" type="text"
                            value="<?php echo (isset($pacient)) ? $pacient->name . ' ' . $pacient->lastname : ''; ?>" class="ui-autocomplete-input" autocomplete="off">
+                    <input type="hidden" name="id" id="pacient-id-hidden" value=""/>
                     {{Form::hidden('_token', csrf_token())}}
                     {{Form::submit('Buscar')}}
                     {!! Form::close() !!}

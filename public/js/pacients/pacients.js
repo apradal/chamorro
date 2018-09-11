@@ -8,6 +8,7 @@ if (typeof CHA == "undefined") {
 CHA.formsearch = {
 
     pacientInput: $("#pacient"),
+    hiddenPacientId: $("#pacient-id-hidden"),
 
     init: function () {
         this.events();
@@ -16,6 +17,7 @@ CHA.formsearch = {
         this.getPacients();
     },
     getPacients: function () {
+        var that = this;
         this.pacientInput.autocomplete({
             source: function( request, response ) {
                 $.ajax( {
@@ -32,7 +34,12 @@ CHA.formsearch = {
                     }
                 } );
             },
-            minLength: 1
+            minLength: 2,
+            select: function( event, ui ) {
+                that.pacientInput.val(ui.item.name);
+                that.hiddenPacientId.attr('value', ui.item.id);
+                return false;
+            }
         });
     }
 };

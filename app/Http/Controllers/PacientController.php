@@ -59,7 +59,7 @@ class PacientController extends Controller
                 $card->save();
                 return redirect()->route('card')->with('pacient', $pacient);
             } else {
-                return redirect()->back()->withErrors(['El paciente ' . $inputs['name'] . ' ' . $inputs['lastname'] . ' Ya existe!']);
+                return redirect()->back()->withErrors(['El paciente ' . $inputs['name'] . ' ' . $inputs['lastname'] . ' con teléfono ' . $inputs['phone'] . ' Ya existe!']);
             }
         }
     }
@@ -71,7 +71,11 @@ class PacientController extends Controller
         $data = array();
 
         foreach ($pacients as $pacient) {
-            $data[] = array('value' => ucfirst($pacient->name) . ' ' . ucfirst($pacient->lastname), 'id' => $pacient->id);
+            $data[] = array(
+                'value' => ucfirst($pacient->name) . ' ' . ucfirst($pacient->lastname) . ' ' . $pacient->phone,
+                'id' => $pacient->id,
+                'name' => ucfirst($pacient->name) . ' ' . ucfirst($pacient->lastname)
+            );
         }
 
         return response()->json($data, 200);
