@@ -37,7 +37,9 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('/periodontics/card', 'PeriodonticController@card')->name('card');
     Route::get('/periodontics/update-card', 'PeriodonticController@update')->name('updatecard');
     /** Pacients */
-    Route::get('/pacients/new', 'PacientController@newPacient');
+    Route::get('/pacients/new', 'PacientController@newPacient')->name('newpacient');
     Route::get('/pacients/create', 'PacientController@createPacient');
+    Route::get('/pacients/edit', 'PacientController@editPacient')->name('editpacient');
+    Route::get('/pacients/edit-page', 'PacientController@editPagePacient')->name('editpage');
     Route::get('/pacients/seach-pacient-ajax', 'PacientController@searchPacientAjax');
 });

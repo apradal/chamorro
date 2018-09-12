@@ -31,6 +31,28 @@ class PacientController extends Controller
         return view('pacients.new');
     }
 
+    public function editPagePacient(Request $request) {
+        $data = $request->all();
+        $rules = [
+            'pacient' => 'required'
+        ];
+        $messages = [
+            'pacient.required' => 'Es obligatorio indicar paciente'
+
+        ];
+        $validator = Validator::make($request->all(),$rules,$messages);
+        //if something is wrong
+        if ($validator->fails()){
+            return redirect('/pacients/new')->withErrors($validator)->withInput();
+        } else {
+            $pacient = new Paciente;
+            $pacient = $pacient->find($data['id']);
+            if ($pacient) {
+                return view('pacients.edit')->with('pacient', $pacient);
+            }
+        }
+    }
+
     public function createPacient(Request $request)
     {
         $inputs = $request->all();
@@ -79,5 +101,33 @@ class PacientController extends Controller
         }
 
         return response()->json($data, 200);
+    }
+
+    public function editPacient(Request $request) {
+        $data = $request->all();
+        $rules = [
+            'name' => 'required',
+            'lastname' => 'required',
+            'phone' => 'required'
+        ];
+        $messages = [
+            'name.required' => 'El nombre es obligatorio.',
+            'lastname.required' => 'El apellido es obligatorio.',
+            'phone.required' => 'El teléfono es obligatorio.',
+            'phone.integer' => 'El teléfono debe ser numérico.'
+
+        ];
+        $validator = Validator::make($request->all(),$rules,$messages);
+        //if something is wrong
+        if ($validator->fails()){
+            return redirect('/pacients/edit')->withErrors($validator)->withInput();
+        } else {
+            $pacient = new Paciente;
+            $pacient = $pacient->find($data['id']);
+            if ($pacient) {
+                $pacient->update($data);
+                return redirect()->route('newpacient')->with('message', 'Paciente: ' . $pacient->name . ' ' . $pacient->lastname . ' actualizado');
+            }
+        }
     }
 }

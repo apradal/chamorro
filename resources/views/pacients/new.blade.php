@@ -8,12 +8,16 @@
                         <div class="alert alert-danger">{{ $error }}</div>
                     @endforeach
                 @endif
+                @if(session('message'))
+                    <div id="message" class="alert alert-success">{{session('message')}}</div>
+                @endif
                 <div class="form" id="create-pacient-form">
                     <h2><?php echo __('Alta de nuevos pacientes'); ?></h2>
                     {!! Form::open(['url' => '/pacients/create', 'method' => 'GET']) !!}
                     {{Form::text('name', '', ['placeholder' => 'Nombre: ', 'maxlength' => '30'])}}
                     {{Form::text('lastname', '', ['placeholder' => 'Apellidos: '])}}
                     {{Form::text('phone', '', ['placeholder' => 'Teléfono: '])}}
+                    {{Form::hidden('_token', csrf_token())}}
                     {{Form::submit('Crear')}}
                     {!! Form::close() !!}
                 </div>
@@ -21,9 +25,10 @@
             <div class="col-xs-12">
                 <div class="form" id="edit-pacient-form">
                     <h2><?php echo __('Edita información de pacientes'); ?></h2>
-                    {!! Form::open(['url' => '/pacients/edit', 'method' => 'GET']) !!}
+                    {!! Form::open(['url' => '/pacients/edit-page', 'method' => 'GET']) !!}
                     <input placeholder="Buscar Paciente: " maxlength="40" id="pacient" name="pacient" type="text"
-                           value="<?php echo (isset($pacient)) ? $pacient->name . ' ' . $pacient->lastname : ''; ?>" class="ui-autocomplete-input" autocomplete="off">
+                           value="<?php echo (isset($pacient)) ? $pacient->name . ' ' . $pacient->lastname : ''; ?>" class="ui-autocomplete-input" autocomplete="off"/>
+                    <input type="hidden" name="id" id="pacient-id-hidden" value=""/>
                     {{Form::hidden('_token', csrf_token())}}
                     {{Form::submit('Editar')}}
                     {!! Form::close() !!}
