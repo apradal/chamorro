@@ -18,6 +18,7 @@ class CreateNextDatesTable extends Migration
             $table->unsignedInteger('paciente_id');
             $table->string('treatment');
             $table->date('next_date');
+            $table->boolean('closed')->default(false);
             $table->timestamps();
 
             $table->foreign('paciente_id')->references('id')->on('pacientes');

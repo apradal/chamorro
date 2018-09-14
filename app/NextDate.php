@@ -10,6 +10,7 @@ class NextDate extends Model
         'paciente_id',
         'treatment',
         'next_date',
+        'closed'
     ];
 
     /**
