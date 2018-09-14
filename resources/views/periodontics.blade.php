@@ -58,4 +58,18 @@
             </div>
         </div>
     </div>
+    <div id="next-dates-popup">
+        <?php
+        if (session('reminder')) {
+            echo session('reminder');
+        }
+        ?>
+    </div>
+    <script>
+        $(document).ready(function(){
+            <?php if (!session('reminder')) : ?>
+                CHA.reminder.init();
+            <?php endif; ?>
+        });
+    </script>
 @endsection

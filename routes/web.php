@@ -42,4 +42,6 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('/pacients/edit', 'PacientController@editPacient')->name('editpacient');
     Route::get('/pacients/edit-page', 'PacientController@editPagePacient')->name('editpage');
     Route::get('/pacients/seach-pacient-ajax', 'PacientController@searchPacientAjax');
+    /** Reminder */
+    Route::get('/reminder/get-dates', 'ReminderController@getDates')->name('reminder');
 });

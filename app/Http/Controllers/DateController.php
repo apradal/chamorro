@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Validator;
 use App\Paciente;
 use App\Http\Middleware\Utils;
 use App\NextDate;
-use Carbon\Carbon;
 
 class DateController extends Controller
 {

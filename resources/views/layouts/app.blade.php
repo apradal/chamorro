@@ -24,6 +24,6 @@
         @yield('content')
     </div>
     <!-- Scripts -->
-    {{--<script src="{{ asset('js/app.js') }}"></script>--}}
+    <script src="{{asset('js/reminder/reminder.js')}}"></script>
 </body>
 </html>
