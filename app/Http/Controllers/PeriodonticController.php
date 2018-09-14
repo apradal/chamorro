@@ -68,7 +68,7 @@ class PeriodonticController extends Controller
             $card = $pacient->fichaperiodontal;
             $card = $card->updateCard($request->all());
             if ($card) {
-                return redirect()->route('main')->with('message', 'Ficha pediorontal actualizada');
+                return redirect()->route('main')->with(['pacient' => $pacient, 'message' => 'Ficha pediorontal actualizada']);
             }
         }
 

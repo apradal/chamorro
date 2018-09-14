@@ -37,9 +37,9 @@ class MainController extends Controller
                 $pacient = new Paciente;
                 $name = str_replace(' ','', $name);
                 if ($pacient = $pacient->getPacientByFullName($name)) {
-                    return view('periodontics.card')->with(array('pacient' => $pacient, 'card' => $pacient->fichaperiodontal));
+                    return view('main')->with(array('pacient' => $pacient, 'card' => $pacient->fichaperiodontal));
                 } else {
-                    return view('periodontics.card')->withErrors(['El paciente ' . $name . ' no existe ne la base de datos']);
+                    return view('main')->withErrors(['El paciente ' . $name . ' no existe ne la base de datos']);
                 }
             }
         } else {

@@ -73,6 +73,7 @@ class PacientController extends Controller
         if ($validator->fails()){
             return redirect('/pacients/new')->withErrors($validator)->withInput();
         } else {
+            if (isset($inputs['_token'])) unset($inputs['_token']);
             $pacient = new Paciente;
             $pacient = $pacient->create($inputs);
             if ($pacient) {
