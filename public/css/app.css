@@ -8645,7 +8645,7 @@ label {
 
 .treatments-box,
 .next-dates-box {
-  z-index: 2;
+  z-index: 9999;
   top: 50%;
   left: 50%;
   margin-right: -50%;
@@ -8884,7 +8884,7 @@ label {
 #limpieza-box-add,
 #cuadrante-box-add,
 #mantenimiento-box-add {
-  z-index: 2;
+  z-index: 9999;
   top: 50%;
   left: 50%;
   margin-right: -50%;
@@ -8912,7 +8912,7 @@ label {
 #revision-date-box-add,
 #limpieza-date-box-add,
 #mantenimiento-date-box-add {
-  z-index: 2;
+  z-index: 9999;
   top: 50%;
   left: 50%;
   margin-right: -50%;
