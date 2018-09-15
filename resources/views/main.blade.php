@@ -6,7 +6,6 @@ use App\Http\Controllers\MainController;
 @extends('layouts.app')
 
 @section('content')
-    <div class="block-background hidden"></div>
     <div class="container">
         <h1>app principal</h1>
         @if ($errors->any())

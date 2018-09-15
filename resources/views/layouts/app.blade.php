@@ -21,6 +21,8 @@
 <body class="@yield('body_class')">
     <div id="app">
         @include('includes.navbar')
+        @include('includes.loader')
+        @include('includes.background')
         @yield('content')
     </div>
     <!-- Scripts -->

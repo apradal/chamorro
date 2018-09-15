@@ -19,7 +19,7 @@ Route::group(['middleware' => 'auth'], function (){
     $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
     $this->post('register', 'Auth\RegisterController@register');
 
-    //TODO create paciets edit page.
+    //TODO ya se guardan las listas reminder en session, falta cerrar y eliminarla y actualizar la sesion
 
     /** General Application */
     Route::get('/', 'HomeController@index')->name('home');
@@ -44,4 +44,5 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('/pacients/seach-pacient-ajax', 'PacientController@searchPacientAjax');
     /** Reminder */
     Route::get('/reminder/get-dates', 'ReminderController@getDates')->name('reminder');
+    Route::get('/reminder/close-date', 'ReminderController@closeDate')->name('close-reminder');
 });

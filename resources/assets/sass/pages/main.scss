@@ -1,13 +1,14 @@
 //Icons on main
 .icon-boxed {
   padding: 2%;
-  background: white;
+  background: $white;
   border-radius: 8px;
   display: block;
   margin: 0 auto;
-  border: 1px solid $black-grey;
+  border: 1px solid $dark-blue;
   cursor: pointer;
   width: 40%;
+  color: $dark-blue;
   text-align: center;
   transition-duration: 0.4s;
   .fa {
@@ -18,7 +19,7 @@
     font-weight: bold;
   }
   &:hover {
-    background: $black-grey;
+    background: $dark-blue;
     color: white;
   }
 }
@@ -149,12 +150,10 @@
   }
 }
 
-
 .svg-cuadrante {
   padding-left: 5px;
   vertical-align: sub;
 }
-
 
 @media screen and (min-width: 992px) {
   #treatment-info {

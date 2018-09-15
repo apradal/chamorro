@@ -67,8 +67,9 @@
     </div>
     <script>
         $(document).ready(function(){
+            CHA.reminder.init();
             <?php if (!session('reminder')) : ?>
-                CHA.reminder.init();
+                CHA.reminder.getNextDates();
             <?php endif; ?>
         });
     </script>

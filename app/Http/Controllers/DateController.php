@@ -53,6 +53,7 @@ class DateController extends Controller
                 if ($pacient->getAttribute('id')) {
                     $nextDate->paciente()->associate($pacient)->save();
                     $pacient->revisions()->save($nextDate);
+                    if (session('reminder')) $request->session()->forget('reminder');
                 }
                 return redirect()->route('main')->with(['pacient' => $pacient, 'message' => 'Siguiente cita para ' . $inputs['treatment'] . ' creada.' ]);
             } else {

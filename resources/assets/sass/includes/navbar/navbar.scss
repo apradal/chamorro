@@ -28,7 +28,7 @@
   box-shadow: none;
   color: $white;
   position: relative;
-  background-color: #1f648b;
+  background-color: $navbar-bg;
   &:before {
     background-size: cover;
     content: "";
