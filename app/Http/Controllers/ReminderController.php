@@ -25,6 +25,8 @@ class ReminderController extends Controller
         $dates = DB::table('next_dates as a')->select('b.name', 'b.lastname', 'a.id', 'a.treatment', 'a.next_date')
             ->where('next_date', '>', $today)
             ->where('closed', '=', 0)
+            ->whereMonth('next_date', '<=', date('m'))
+            ->whereYear('next_date', '<=', date('Y'))
             ->leftJoin('pacientes as b', 'b.id', '=', 'a.paciente_id')
             ->orderBy('next_date', 'asc')
             ->get();
@@ -53,7 +55,8 @@ class ReminderController extends Controller
         $nextDate = new NextDate();
         $nextDate = $nextDate->find($id);
         if ($nextDate) {
-            $nextDate->delete();
+            $nextDate->closed = 1;
+            $nextDate->save();
             if (session('reminder')) $request->session()->forget('reminder');
         }
 

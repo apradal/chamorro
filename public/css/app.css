@@ -8485,7 +8485,7 @@ a:active {
   -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
   animation: load6 1.7s infinite ease, round 1.7s infinite ease;
   position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
   display: none;
   -webkit-transform: translate(-50%, -50%);
@@ -9068,6 +9068,8 @@ label {
           box-shadow: 0 0 15px rgba(0, 0, 0, 0.22);
   -webkit-transition: right 0.8s ease-in-out;
   transition: right 0.8s ease-in-out;
+  max-height: 300px;
+  overflow: auto;
 }
 
 #next-dates-popup:hover {
@@ -9092,8 +9094,25 @@ label {
   min-height: 40px;
 }
 
+#next-dates-popup .next-dates-list li {
+  padding: 4px 0;
+}
+
+#next-dates-popup .next-dates-list li span {
+  padding: 0 30px;
+}
+
+#next-dates-popup .next-dates-list li span.treatment-span {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
 #next-dates-popup .next-dates-list .close-reminder-date {
   cursor: pointer;
+}
+
+#next-dates-popup .next-dates-list .close-reminder-date:hover {
+  font-size: 1.5em;
 }
 
 @media screen and (min-width: 992px) {

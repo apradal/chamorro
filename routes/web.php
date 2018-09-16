@@ -19,8 +19,6 @@ Route::group(['middleware' => 'auth'], function (){
     $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
     $this->post('register', 'Auth\RegisterController@register');
 
-    //TODO ya se guardan las listas reminder en session, falta cerrar y eliminarla y actualizar la sesion
-
     /** General Application */
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/home', 'HomeController@index')->name('home');
