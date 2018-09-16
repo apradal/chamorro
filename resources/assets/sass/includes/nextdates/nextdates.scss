@@ -5,7 +5,7 @@
   margin-right: -50%;
   transform: translate(-50%, -50%);
   position: absolute;
-  width: 80%;
+  width: 50%;
   background: white;
   border-radius: 8px;
   padding: 25px;
@@ -18,7 +18,7 @@
   font-size: 30px;
   position: relative;
   margin-bottom: 10px;
-  right: -500px;
+  right: -90%;
   top: 0;
   cursor: pointer;
 }
@@ -58,11 +58,27 @@
     min-height: 40px;
     li {
       padding: 4px 0;
-      span {
-        padding: 0 30px;
-        &.treatment-span {
-          font-weight: bold;
-          text-transform: capitalize;
+      p {
+        margin: 0;
+        border-bottom: 1px solid;
+        display: inline-block;
+        span {
+          display: inline-block;
+          &.span-pacient {
+            min-width: 300px;
+          }
+          &.span-phone {
+            float: right;
+            padding-right: 5px;
+          }
+          &.span-date {
+            min-width: 100px;
+          }
+          &.span-treatment {
+            font-weight: bold;
+            text-transform: capitalize;
+            min-width: 150px;
+          }
         }
       }
     }

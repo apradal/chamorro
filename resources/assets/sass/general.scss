@@ -1,3 +1,8 @@
+/** BUG autocomplete **/
+.ui-front {
+  z-index: 1000 !important;
+}
+
 /** Switch button (checkbox)*/
 .switch {
   position: relative;
@@ -86,6 +91,17 @@ textarea {
   resize: none;
   &:focus {
     border-color: $switch-on;
+  }
+}
+// buttons
+.button-form {
+  margin-left: -32px;
+  box-shadow: inset 0px 1px 0px 0px #1f648b;
+  background-color: #1f648b;
+  border: 1px solid #1f648b;
+  color: $white;
+  &:hover {
+    background-color: steelblue;
   }
 }
 

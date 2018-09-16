@@ -8350,6 +8350,12 @@ button.close {
   }
 }
 
+/** BUG autocomplete **/
+
+.ui-front {
+  z-index: 1000 !important;
+}
+
 /** Switch button (checkbox)*/
 
 .switch {
@@ -8456,6 +8462,19 @@ textarea {
 
 textarea:focus {
   border-color: #31B0D5;
+}
+
+.button-form {
+  margin-left: -32px;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #1f648b;
+          box-shadow: inset 0px 1px 0px 0px #1f648b;
+  background-color: #1f648b;
+  border: 1px solid #1f648b;
+  color: #fff;
+}
+
+.button-form:hover {
+  background-color: steelblue;
 }
 
 .bold {
@@ -8772,7 +8791,7 @@ label {
   background: #636B6F;
   border-radius: 8px;
   display: block;
-  margin: 0 auto;
+  margin: 20px auto;
   border: 1px solid #fff;
   cursor: pointer;
   width: 90%;
@@ -8807,7 +8826,7 @@ label {
   font-size: 30px;
   position: relative;
   margin-bottom: 10px;
-  right: -500px;
+  right: -90%;
   top: 0;
   cursor: pointer;
 }
@@ -8885,9 +8904,60 @@ label {
   vertical-align: sub;
 }
 
+.main .navbar {
+  margin-bottom: 0;
+}
+
+.main .cabecera {
+  margin-bottom: 50px;
+}
+
+.main .cabecera .col-md-4 {
+  margin: 10px auto;
+}
+
+.main-cabecera {
+  color: #fff;
+  position: relative;
+  padding-bottom: 200px;
+  margin-bottom: -200px;
+}
+
+.main-cabecera h1 {
+  text-align: center;
+  padding-top: 20px;
+  margin: 0 0 20px;
+  font-family: 'Bree Serif', serif;
+}
+
+.main-cabecera:before {
+  position: absolute;
+  content: "";
+  background: url("/images/city.jpg") top center no-repeat;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
 @media screen and (min-width: 992px) {
+  .main .cabecera {
+    margin-bottom: 150px;
+  }
+
+  .main-cabecera {
+    margin-bottom: -150px;
+  }
+
   #treatment-info {
     width: 90%;
+  }
+
+  .treatments-box,
+  .next-dates-box {
+    width: 50%;
   }
 }
 
@@ -9000,7 +9070,7 @@ label {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   position: absolute;
-  width: 80%;
+  width: 50%;
   background: white;
   border-radius: 8px;
   padding: 25px;
@@ -9013,7 +9083,7 @@ label {
   font-size: 30px;
   position: relative;
   margin-bottom: 10px;
-  right: -500px;
+  right: -90%;
   top: 0;
   cursor: pointer;
 }
@@ -9028,7 +9098,7 @@ label {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   position: absolute;
-  width: 80%;
+  width: 50%;
   background: white;
   border-radius: 8px;
   padding: 25px;
@@ -9046,7 +9116,7 @@ label {
   font-size: 30px;
   position: relative;
   margin-bottom: 10px;
-  right: -500px;
+  right: -90%;
   top: 0;
   cursor: pointer;
 }
@@ -9098,13 +9168,33 @@ label {
   padding: 4px 0;
 }
 
-#next-dates-popup .next-dates-list li span {
-  padding: 0 30px;
+#next-dates-popup .next-dates-list li p {
+  margin: 0;
+  border-bottom: 1px solid;
+  display: inline-block;
 }
 
-#next-dates-popup .next-dates-list li span.treatment-span {
+#next-dates-popup .next-dates-list li p span {
+  display: inline-block;
+}
+
+#next-dates-popup .next-dates-list li p span.span-pacient {
+  min-width: 300px;
+}
+
+#next-dates-popup .next-dates-list li p span.span-phone {
+  float: right;
+  padding-right: 5px;
+}
+
+#next-dates-popup .next-dates-list li p span.span-date {
+  min-width: 100px;
+}
+
+#next-dates-popup .next-dates-list li p span.span-treatment {
   font-weight: bold;
   text-transform: capitalize;
+  min-width: 150px;
 }
 
 #next-dates-popup .next-dates-list .close-reminder-date {

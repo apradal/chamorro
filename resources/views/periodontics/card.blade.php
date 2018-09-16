@@ -19,7 +19,7 @@
                            value="<?php echo (isset($pacient)) ? $pacient->name . ' ' . $pacient->lastname : ''; ?>" class="ui-autocomplete-input" autocomplete="off">
                     <input type="hidden" name="id" id="pacient-id-hidden" value=""/>
                     {{Form::hidden('_token', csrf_token())}}
-                    {{Form::submit('Buscar')}}
+                    <button class="button-form"><i class="fas fa-search"></i></button>
                     {!! Form::close() !!}
                 </div>
             </div>

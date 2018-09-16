@@ -22,7 +22,7 @@ class ReminderController extends Controller
     {
         $data = array();
         $today = Carbon::now()->format('Y-m-d');
-        $dates = DB::table('next_dates as a')->select('b.name', 'b.lastname', 'a.id', 'a.treatment', 'a.next_date')
+        $dates = DB::table('next_dates as a')->select('b.name', 'b.lastname', 'b.phone', 'a.id', 'a.treatment', 'a.next_date')
             ->where('next_date', '>', $today)
             ->where('closed', '=', 0)
             ->whereMonth('next_date', '<=', date('m'))

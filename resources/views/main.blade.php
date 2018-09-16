@@ -4,10 +4,12 @@ use App\Http\Controllers\MainController;
 
 ?>
 @extends('layouts.app')
-
+@section('body_class', 'main')
 @section('content')
+    <div class="main-cabecera">
+        <h1><?php echo __('Histórico de Pacientes') ?></h1>
+    </div>
     <div class="container">
-        <h1>app principal</h1>
         @if ($errors->any())
             <!-- Messages -->
             @foreach ($errors->all() as $error)
@@ -18,7 +20,7 @@ use App\Http\Controllers\MainController;
             <div id="message" class="alert alert-success">{{session('message')}}</div>
         @endif
         <!-- Search pacient -->
-        <div class="row">
+        <div class="row cabecera">
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="form" id="search-pacient-form">
                     {!! Form::open(['url' => '/main', 'method' => 'GET']) !!}
@@ -26,7 +28,7 @@ use App\Http\Controllers\MainController;
                            value="<?php echo (isset($pacient)) ? $pacient->name . ' ' . $pacient->lastname : ''; ?>" class="ui-autocomplete-input" autocomplete="off">
                     <input type="hidden" name="id" id="pacient-id-hidden" value=""/>
                     {{Form::hidden('_token', csrf_token())}}
-                    {{Form::submit('Buscar')}}
+                    <button class="button-form"><i class="fas fa-search"></i></button>
                     {!! Form::close() !!}
                 </div>
             </div>

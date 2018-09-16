@@ -52,7 +52,7 @@
   background: $black-grey;
   border-radius: 8px;
   display: block;
-  margin: 0 auto;
+  margin: 20px auto;
   border: 1px solid $white;
   cursor: pointer;
   width: 90%;
@@ -83,7 +83,7 @@
   font-size: 30px;
   position: relative;
   margin-bottom: 10px;
-  right: -500px;
+  right: -90%;
   top: 0;
   cursor: pointer;
 }
@@ -155,8 +155,55 @@
   vertical-align: sub;
 }
 
+.main {
+  .navbar {
+    margin-bottom: 0;
+  }
+  .cabecera {
+    margin-bottom: 50px;
+    .col-md-4 {
+      margin: 10px auto;
+    }
+  }
+}
+
+.main-cabecera {
+  color: $white;
+  position: relative;
+  padding-bottom: 200px;
+  margin-bottom: -200px;
+  h1 {
+    text-align: center;
+    padding-top: 20px;
+    margin: 0 0 20px;
+    font-family: 'Bree Serif', serif;
+  }
+  &:before {
+    position: absolute;
+    content: "";
+    background: url('/images/city.jpg') top center no-repeat;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+  }
+}
+
 @media screen and (min-width: 992px) {
+  .main {
+    .cabecera {
+      margin-bottom: 150px;
+    }
+  }
+  .main-cabecera {
+    margin-bottom: -150px;
+  }
   #treatment-info {
     width: 90%;
+  }
+  .treatments-box, .next-dates-box {
+    width: 50%;
   }
 }
