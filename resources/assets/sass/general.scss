@@ -3,73 +3,32 @@
   z-index: 1000 !important;
 }
 
-/** Switch button (checkbox)*/
-.switch {
-  position: relative;
+html, body {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+
+input[type="button"],
+input[type="submit"]{
+  -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+  box-shadow: inset 0px 1px 0px 0px #1f648b;
+  background-color: #1f648b;
+  border: 1px solid #1f648b;
   display: inline-block;
-  width: 60px;
-  height: 34px;
-  input {
-    display: none;
-    &:checked + .slider {
-      background-color: $switch-on;
-    }
-    &:checked + .slider:before {
-      -webkit-transform: translateX(28px);
-      -ms-transform: translateX(28px);
-      transform: translateX(28px);
-    }
-    &:focus + .slider {
-      box-shadow: 0 0 1px #2196F3;
-    }
-  }
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: $switch-off;
-    -webkit-transition: .4s;
-    transition: .4s;
-    &:before {
-      position: absolute;
-      content: "";
-      height: 26px;
-      width: 26px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      -webkit-transition: .4s;
-      transition: .4s;
-      z-index: 2;
-    }
-    .on, .off {
-      position: absolute;
-      font-size: 10px;
-      font-family: Verdana, sans-serif;
-    }
-    .on {
-      color: $white;
-      transform: translate(-50%,-50%);
-      top: 50%;
-      left: 20%;
-    }
-    .off {
-      color: $black;
-      transform: translate(-50%,-50%);
-      top: 50%;
-      left: 75%;
-    }
-    &.round {
-      border-radius: 34px;
-      &:before {
-        border-radius: 50%;
-      }
-    }
+  cursor: pointer;
+  color: #FFFFFF;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 14px;
+  padding: 8px 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+  &:hover {
+    background-color: steelblue;
   }
 }
+
 // FORM INPUTS
 input[type=text] {
   width: 80%;
@@ -290,6 +249,10 @@ a:active {
 
 /** Container **/
 #app {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
   .container {
     position: relative;
     z-index: 1000;

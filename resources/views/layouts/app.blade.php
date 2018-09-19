@@ -17,6 +17,7 @@
     <!-- JS -->
     <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('js/jquery-ui.min.js')}}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body class="@yield('body_class')">
     <div id="app">

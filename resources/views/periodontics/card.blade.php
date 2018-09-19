@@ -1,3 +1,4 @@
+@section('body_class', 'card')
 @extends('layouts.app')
 @section('content')
     <div class="container">

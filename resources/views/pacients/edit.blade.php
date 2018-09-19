@@ -17,6 +17,7 @@
                         {{Form::text('phone', $pacient->phone, ['placeholder' => 'Teléfono: '])}}
                         {{Form::hidden('_token', csrf_token())}}
                         {{Form::hidden('id', $pacient->id)}}
+                        <br>
                         {{Form::submit('Editar')}}
                         {!! Form::close() !!}
                     </div>
