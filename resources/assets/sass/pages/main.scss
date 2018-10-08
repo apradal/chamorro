@@ -123,6 +123,22 @@
       border-right: 2px solid $dark-blue;
       border-bottom: 2px solid $dark-blue;
     }
+    .div-editable {
+      width: 100%;
+      border: none;
+      padding: 0;
+      margin: 0;
+      overflow: auto;
+      outline: none;
+      background-color: transparent;
+    }
+    .treatments-icons {
+      float: right;
+      i {
+        padding: 0 5px;
+        cursor: pointer;
+      }
+    }
   }
   .treatments-box-list-header {
     font-weight: bold;

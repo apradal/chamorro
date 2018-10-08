@@ -12,7 +12,6 @@ CHA.main = {
     treatmentsBox: $("#treatments-box"),
     nextDatesBtn: $("#next-dates-btn"),
     nextDatesBox: $("#next-dates-box"),
-    blockBackground: $(".block-background"),
     closeTreatmentsBoxBtn: $("#treatments-box-close"),
     closeNextDatesBoxBtn: $("#next-dates-box-close"),
     /** Treatment elements **/
@@ -24,6 +23,8 @@ CHA.main = {
     closeLimpiezaBtn: $("#limpieza-box-close"),
     mantenimientoBtn: $("#mantenimiento-btn"),
     closeMantenimientoBtn: $("#mantenimiento-box-close"),
+    editIcon: $(".fa-edit"),
+    divEditable: $(".div-editable"),
     /** Next Date elemetns */
     dateRevisionBtn: $("#next-dates-revision-btn"),
     dateLimpiezaBtn: $("#next-dates-limpieza-btn"),
@@ -31,7 +32,9 @@ CHA.main = {
     closeNextDateRevisionBtn: $("#revision-date-box-close"),
     closeNextDateLimpiezaBtn: $("#limpieza-date-box-close"),
     closeNextDateMantenimientoBtn: $("#mantenimiento-date-box-close"),
-
+    /** Loader **/
+    loader: $("#loader"),
+    blockBackground: $(".block-background"),
 
     init: function () {
         this.events();
@@ -42,6 +45,7 @@ CHA.main = {
         this.showHideDates();
         this.showHideTreatmentsBox();
         this.showHideNextDates();
+        this.editTreatment();
     },
     /** Main */
     showHideTreatments: function () {
@@ -90,6 +94,63 @@ CHA.main = {
             id.fadeOut(500);
             that.blockBackground.fadeOut(500);
         })
+    },
+    editTreatment: function () {
+        var that = this;
+        this.editIcon.on('click', function () {
+            var divEditable = $(this).parent().next('.div-editable');
+            var editIcon = $(this);
+            var deleteIcon = $(this).nextAll('.fa-trash-alt');
+            var cancelIcon = $(this).nextAll('.fa-times-circle');
+            var saveIcon = $(this).nextAll('.fa-check-square');
+            var oldContent = divEditable.val().trim();
+            cancelIcon.removeClass('hidden');
+            deleteIcon.addClass('hidden');
+            divEditable.css('background-color','white');
+            divEditable.removeAttr('disabled');
+            $(this).addClass('hidden');
+            saveIcon.removeClass('hidden');
+            cancelIcon.on('click', function () {
+                divEditable.val(oldContent);
+                divEditable
+                    .css('background-color','transparent')
+                    .attr('disabled', true);
+                $(this).addClass('hidden');
+                editIcon.removeClass('hidden');
+                saveIcon.addClass('hidden');
+                deleteIcon.removeClass('hidden');
+            });
+            saveIcon.on('click', function () {
+                var id = divEditable.attr('data-treatment-id');
+                var type = divEditable.attr('data-treatment-type');
+                var data = {content : divEditable.val().trim(), id: id, type: type};
+                that.loader.css('display', 'block');
+                that.blockBackground.removeClass("hidden");
+
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: "/treatments/update-ajax",
+                    dataType: "json",
+                    data: data,
+                    type: 'post',
+                    success: function( data ) {
+                        if (data.success) {
+                            divEditable
+                                .css('background-color','transparent')
+                                .attr('disabled', true);
+                            deleteIcon.removeClass('hidden');
+                            editIcon.removeClass('hidden');
+                            cancelIcon.addClass('hidden');
+                            saveIcon.addClass('hidden');
+                            that.loader.css('display', 'none');
+                            that.blockBackground.addClass("hidden");
+                        }
+                    }
+                });
+            })
+        });
     },
     /** Next dates */
     showHideNextDates: function () {

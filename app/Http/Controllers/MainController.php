@@ -64,7 +64,8 @@ class MainController extends Controller
                     'pattern' => $cuadrante->getAttribute('pattern'),
                     'date' => $cuadrante->getAttribute('date'),
                     'observations' => $cuadrante->getAttribute('observations'),
-                    'treatment' => 'cuadrante'
+                    'treatment' => 'cuadrante',
+                    'id' => $cuadrante->getAttribute('id')
                 );
             }
         }
@@ -73,7 +74,8 @@ class MainController extends Controller
                 $orderedTreatmens[] = array(
                     'date' => $limpieza->getAttribute('date'),
                     'observations' => $limpieza->getAttribute('observations'),
-                    'treatment' => 'limpieza'
+                    'treatment' => 'limpieza',
+                    'id' => $cuadrante->getAttribute('id')
                 );
             }
         }
@@ -82,7 +84,8 @@ class MainController extends Controller
                 $orderedTreatmens[] = array(
                     'date' => $revision->getAttribute('date'),
                     'observations' => $revision->getAttribute('observations'),
-                    'treatment' => 'revision'
+                    'treatment' => 'revision',
+                    'id' => $cuadrante->getAttribute('id')
                 );
             }
         }
@@ -91,7 +94,8 @@ class MainController extends Controller
                 $orderedTreatmens[] = array(
                     'date' => $mantenimiento->getAttribute('date'),
                     'observations' => $mantenimiento->getAttribute('observations'),
-                    'treatment' => 'mantenimiento'
+                    'treatment' => 'mantenimiento',
+                    'id' => $cuadrante->getAttribute('id')
                 );
             }
         }
