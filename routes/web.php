@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth'], function (){
     Route::post('/limpieza/add', 'LimpiezaController@add')->name('limpieza');
     Route::post('/mantenimiento/add', 'MantenimientoController@add')->name('mantenimiento');
     Route::post('/treatments/update-ajax', 'TreatmentController@updateTreatmentAjax')->name('update-treatment-ajax');
+    Route::post('/treatments/delete-ajax', 'TreatmentController@deleteTreatmentAjax')->name('delete-treatment-ajax');
     /** Fechas citas */
     Route::post('/nextdate/addTreatment', 'DateController@addTreatment')->name('nextdate');
     /** Periodontics */

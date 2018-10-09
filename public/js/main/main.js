@@ -14,6 +14,7 @@ CHA.main = {
     nextDatesBox: $("#next-dates-box"),
     closeTreatmentsBoxBtn: $("#treatments-box-close"),
     closeNextDatesBoxBtn: $("#next-dates-box-close"),
+    treatmentsParent: $('#treatments-ajax'),
     /** Treatment elements **/
     cuadranteBtn: $("#cuadrante-btn"),
     closeCuadranteBtn: $("#cuadrante-box-close"),
@@ -24,6 +25,7 @@ CHA.main = {
     mantenimientoBtn: $("#mantenimiento-btn"),
     closeMantenimientoBtn: $("#mantenimiento-box-close"),
     editIcon: $(".fa-edit"),
+    deleteIcon: $(".fa-trash-alt"),
     divEditable: $(".div-editable"),
     /** Next Date elemetns */
     dateRevisionBtn: $("#next-dates-revision-btn"),
@@ -76,8 +78,7 @@ CHA.main = {
     },
     /** Tratments */
     showHideTreatmentsList: function () {
-        var treatmentListHeader = $('.treatments-box-list-header');
-        treatmentListHeader.on('click', function () {
+        this.treatmentsParent.on('click', '.treatments-box-list-header', function () {
            $(this).parent().toggleClass('list-no-active');
         })
     },
@@ -97,7 +98,7 @@ CHA.main = {
     },
     editTreatment: function () {
         var that = this;
-        this.editIcon.on('click', function () {
+        this.treatmentsParent.on('click', '.fa-edit', function () {
             var divEditable = $(this).parent().next('.div-editable');
             var editIcon = $(this);
             var deleteIcon = $(this).nextAll('.fa-trash-alt');
@@ -150,6 +151,32 @@ CHA.main = {
                     }
                 });
             })
+        });
+        this.treatmentsParent.on('click', '.fa-trash-alt', function () {
+            var divEditable = $(this).parent().next('.div-editable');
+            that.loader.css('display', 'block');
+            that.blockBackground.removeClass("hidden");
+            var id = divEditable.attr('data-treatment-id');
+            var type = divEditable.attr('data-treatment-type');
+            var pacientId = divEditable.attr('data-pacient-id');
+            var data = {id: id, type: type, pacient: pacientId};
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: "/treatments/delete-ajax",
+                dataType: "json",
+                data: data,
+                type: 'post',
+                success: function( data ) {
+                    if (data.success) {
+                        that.loader.css('display', 'none');
+                        that.blockBackground.addClass("hidden");
+                        $('#treatments-ajax').html(data.html);
+                    }
+                }
+            });
         });
     },
     /** Next dates */

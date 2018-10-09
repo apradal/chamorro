@@ -75,7 +75,7 @@ class MainController extends Controller
                     'date' => $limpieza->getAttribute('date'),
                     'observations' => $limpieza->getAttribute('observations'),
                     'treatment' => 'limpieza',
-                    'id' => $cuadrante->getAttribute('id')
+                    'id' => $limpieza->getAttribute('id')
                 );
             }
         }
@@ -85,7 +85,7 @@ class MainController extends Controller
                     'date' => $revision->getAttribute('date'),
                     'observations' => $revision->getAttribute('observations'),
                     'treatment' => 'revision',
-                    'id' => $cuadrante->getAttribute('id')
+                    'id' => $revision->getAttribute('id')
                 );
             }
         }
@@ -95,7 +95,7 @@ class MainController extends Controller
                     'date' => $mantenimiento->getAttribute('date'),
                     'observations' => $mantenimiento->getAttribute('observations'),
                     'treatment' => 'mantenimiento',
-                    'id' => $cuadrante->getAttribute('id')
+                    'id' => $mantenimiento->getAttribute('id')
                 );
             }
         }

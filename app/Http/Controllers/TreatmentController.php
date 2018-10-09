@@ -21,7 +21,11 @@ class TreatmentController extends Controller
         $this->middleware('auth');
     }
 
-
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * Updates treatments
+     */
     public function updateTreatmentAjax(Request $request)
     {
         $params = $request->all();
@@ -51,6 +55,45 @@ class TreatmentController extends Controller
             }
         }
     }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * Delete treatments
+     */
+    public function deleteTreatmentAjax(Request $request)
+    {
+        $params = $request->all();
+        $object = null;
+        switch ($params['type']) {
+            case ('limpieza'):
+                $object = new Limpieza();
+                break;
+            case ('mantenimiento'):
+                $object = new Mantenimiento();
+                break;
+            case ('cuadrante'):
+                $object = new Cuadrante();
+                break;
+            case ('revision'):
+                $object = new Revision();
+                break;
+        }
+
+        $object = $object->find($params['id']);
+        if ($object) {
+            try {
+                $pacient = new Paciente();
+                $pacient = $pacient->find($params['pacient']);
+                $object->delete();
+                $html = view('main.treatments')->with('pacient', $pacient)->render();
+                return response()->json(['success' => true, 'html' => $html]);
+            }catch (Exception $e) {
+                return response()->json(['error' => $e->getMessage()]);
+            }
+        }
+    }
+
     /**
      * Show the application dashboard.
      *
