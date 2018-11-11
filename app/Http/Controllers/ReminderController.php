@@ -23,6 +23,8 @@ class ReminderController extends Controller
         $data = array();
         $dates = DB::table('next_dates as a')->select('b.name', 'b.lastname', 'b.phone', 'a.id', 'a.treatment', 'a.next_date')
             ->where('closed', '=', 0)
+            ->whereMonth('next_date', '<=', date('m'))
+            ->whereYear('next_date', '<=', date('Y'))
             ->leftJoin('pacientes as b', 'b.id', '=', 'a.paciente_id')
             ->orderBy('next_date', 'asc')
             ->get();
