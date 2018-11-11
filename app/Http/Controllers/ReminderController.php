@@ -21,12 +21,8 @@ class ReminderController extends Controller
     public function getDates()
     {
         $data = array();
-        $today = Carbon::now()->format('Y-m-d');
         $dates = DB::table('next_dates as a')->select('b.name', 'b.lastname', 'b.phone', 'a.id', 'a.treatment', 'a.next_date')
-            ->where('next_date', '>', $today)
             ->where('closed', '=', 0)
-            ->whereMonth('next_date', '<=', date('m'))
-            ->whereYear('next_date', '<=', date('Y'))
             ->leftJoin('pacientes as b', 'b.id', '=', 'a.paciente_id')
             ->orderBy('next_date', 'asc')
             ->get();
