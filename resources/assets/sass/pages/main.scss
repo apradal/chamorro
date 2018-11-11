@@ -28,9 +28,9 @@
 .info-box {
   width: 100%;
   height: 300px;
-  border-radius: 8px;
   background-color: $white;
   overflow: auto;
+  border: 1px solid;
 }
 
 //Treatments box & Next dates box
@@ -163,6 +163,16 @@
     .treatments-list-date{
       float: right;
     }
+  }
+}
+
+#pediodontic-info {
+  .info-title {
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    background-color: lightgrey;
+    border-top: 1px solid black;
+    color: black;
   }
 }
 
