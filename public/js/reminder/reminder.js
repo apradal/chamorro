@@ -9,6 +9,7 @@ CHA.reminder = {
     background: $(".block-background"),
 
     init: function () {
+        this.toggleOpen();
         this.closeNextDates();
     },
     getNextDates: function () {
@@ -41,6 +42,12 @@ CHA.reminder = {
 
                 }
             });
+        });
+    },
+    toggleOpen: function () {
+        var that = this;
+        this.container.on('click', function (e) {
+            that.container.toggleClass('selected');
         });
     }
 };

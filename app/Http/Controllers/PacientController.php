@@ -34,10 +34,10 @@ class PacientController extends Controller
     public function editPagePacient(Request $request) {
         $data = $request->all();
         $rules = [
-            'pacient' => 'required'
+            'id' => 'required'
         ];
         $messages = [
-            'pacient.required' => 'Es obligatorio indicar paciente'
+            'id.required' => 'Es obligatorio indicar paciente'
 
         ];
         $validator = Validator::make($request->all(),$rules,$messages);
@@ -128,6 +128,40 @@ class PacientController extends Controller
             if ($pacient) {
                 $pacient->update($data);
                 return redirect()->route('newpacient')->with('message', 'Paciente: ' . $pacient->name . ' ' . $pacient->lastname . ' actualizado');
+            }
+        }
+    }
+
+    /**
+     * Deletes user and redirect to list.
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function deletePacientAjax(Request $request)
+    {
+        //TODO make it an ajax call and refresh page content instaed redirect.
+        $data = $request->all();
+        $rules = [
+            'id' => 'required'
+        ];
+        $messages = [
+            'id.required' => 'No se ha enviado el id de cliente'
+
+        ];
+        $validator = Validator::make($request->all(),$rules,$messages);
+        //if something is wrong
+        if ($validator->fails()){
+            return redirect('/pacients/list')->withErrors($validator)->withInput();
+        } else {
+            $pacient = new Paciente;
+            $pacient = $pacient->find($data['id']);
+            if ($pacient) {
+                $pacient->cuadrantes()->delete();
+                $pacient->fichaperiodontal()->delete();
+                $pacient->nextdates()->delete();
+                $pacient->revisions()->delete();
+                $pacient->delete();
+                return redirect('pacients/list');
             }
         }
     }

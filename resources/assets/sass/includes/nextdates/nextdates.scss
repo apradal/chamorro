@@ -39,7 +39,7 @@
   transition: right 0.8s ease-in-out;
   max-height: 300px;
   overflow:auto;
-  &:hover {
+  &.selected {
     right: 0;
   }
   .arrow-show-reminder {

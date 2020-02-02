@@ -1,0 +1,49 @@
+#pacient-list-link {
+  text-decoration: none;
+  h2 {
+    background: #1f648b;
+    text-transform: uppercase;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 100;
+    padding: 20px;
+    width: 500px;
+    margin: 50px auto 0;
+    text-align: center;
+    &:hover {
+      background-color: steelblue;
+    }
+  }
+}
+#pacientlist-table {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  margin-top: 50px;
+  .pacient-list-head {
+    display: table-row;
+    margin-bottom: 20px;
+    span {
+      display: inline-table;
+      width: 18%;
+      font-weight: bold;
+    }
+  }
+  .pacient-list-row {
+    display: table-row;
+    padding: 10px;
+    border-bottom: 1px solid black;
+    &:nth-child(even) {
+      background-color: #fff;
+    }
+    .td {
+      display: inline-table;
+      width: 18%;
+    }
+    input[type="submit"] {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

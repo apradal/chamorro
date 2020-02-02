@@ -8670,6 +8670,10 @@ a:active {
   z-index: 1000;
 }
 
+.page-title {
+  text-align: center;
+}
+
 .cabecera-home {
   text-align: center;
   color: #fff;
@@ -9131,6 +9135,65 @@ a:active {
   display: inline-block;
 }
 
+#pacient-list-link {
+  text-decoration: none;
+}
+
+#pacient-list-link h2 {
+  background: #1f648b;
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 100;
+  padding: 20px;
+  width: 500px;
+  margin: 50px auto 0;
+  text-align: center;
+}
+
+#pacient-list-link h2:hover {
+  background-color: steelblue;
+}
+
+#pacientlist-table {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  margin-top: 50px;
+}
+
+#pacientlist-table .pacient-list-head {
+  display: table-row;
+  margin-bottom: 20px;
+}
+
+#pacientlist-table .pacient-list-head span {
+  display: inline-table;
+  width: 18%;
+  font-weight: bold;
+}
+
+#pacientlist-table .pacient-list-row {
+  display: table-row;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+#pacientlist-table .pacient-list-row:nth-child(even) {
+  background-color: #fff;
+}
+
+#pacientlist-table .pacient-list-row .td {
+  display: inline-table;
+  width: 18%;
+}
+
+#pacientlist-table .pacient-list-row input[type="submit"] {
+  display: block;
+  margin: 0 auto;
+}
+
 #revision-box-add,
 #limpieza-box-add,
 #cuadrante-box-add,
@@ -9214,7 +9277,7 @@ a:active {
   overflow: auto;
 }
 
-#next-dates-popup:hover {
+#next-dates-popup.selected {
   right: 0;
 }
 

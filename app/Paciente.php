@@ -116,4 +116,16 @@ class Paciente extends Model
         return $dates;
     }
 
+    /**
+     * Get all Pacients
+     * @param null $limit
+     * @param null $offset
+     * @return mixed
+     */
+    public function getAllPacients($limit = null, $offset = null) {
+        $pacients = DB::table('pacientes')->select('id', 'name', 'lastname', 'phone')->get();
+
+        return $pacients;
+    }
+
 }

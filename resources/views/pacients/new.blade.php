@@ -11,6 +11,9 @@
                 @if(session('message'))
                     <div id="message" class="alert alert-success">{{session('message')}}</div>
                 @endif
+                <a id="pacient-list-link" href="{{ url('/pacients/list') }}">
+                    <h2><?php echo __('Listado de Pacientes'); ?></h2>
+                </a>
                 <div class="form" id="create-pacient-form">
                     <h2><?php echo __('Alta de nuevos pacientes'); ?></h2>
                     {!! Form::open(['url' => '/pacients/create', 'method' => 'GET']) !!}
