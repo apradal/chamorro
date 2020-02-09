@@ -28,9 +28,26 @@ class PacientListController extends Controller
      * Get all pacients from model.
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function listPacient()
+    public function listPacient(Request $request)
     {
-        $this->_pacientsList = $this->_pacient->getAllPacients();
+        $inputs = $this->_getInputs($request);
+
+        if (count($inputs)) {
+            $this->_pacientsList = $this->_pacient->getPacientsWithFilters($inputs);
+        } else {
+            $this->_pacientsList = $this->_pacient->getAllPacients();
+        }
+
         return view('pacients.list')->with('pacients', $this->_pacientsList);
+    }
+
+    private function _getInputs($request)
+    {
+        $inputs = [];
+        foreach ($request->all() as $key => $value) {
+            if (!is_null($value)) $inputs[$key] = $value;
+        }
+
+        return $inputs;
     }
 }

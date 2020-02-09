@@ -10,7 +10,15 @@
         @if(session('message'))
             <div id="message" class="alert alert-success">{{session('message')}}</div>
         @endif
-        @if ($pacients)
+        <!-- Form searcher -->
+        {!! Form::open(['url' => '/pacients/list', 'method' => 'GET', 'id' => 'pacient-list-searcher']) !!}
+        {{Form::text('name', '', ['placeholder' => 'Nombre ', 'maxlength' => '30'])}}
+        {{Form::text('lastname', '', ['placeholder' => 'Apellidos '])}}
+        {{Form::text('phone', '', ['placeholder' => 'Teléfono '])}}
+        {{Form::submit('Buscar')}}
+        {!! Form::close() !!}
+
+        @if (count($pacients))
             <div id="pacientlist-table">
                 <div class="pacient-list-head col-xs-12">
                     <span><?php echo __('Nombre') ?></span>

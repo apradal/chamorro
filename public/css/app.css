@@ -9156,6 +9156,13 @@ a:active {
   background-color: steelblue;
 }
 
+#pacient-list-searcher {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 50px;
+}
+
 #pacientlist-table {
   display: table;
   width: 100%;

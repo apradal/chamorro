@@ -123,10 +123,35 @@ class Paciente extends Model
      * @param null $offset
      * @return mixed
      */
-    public function getAllPacients($limit = null, $offset = null) {
+    public function getAllPacients($limit = null, $offset = null)
+    {
         $pacients = DB::table('pacientes')->select('id', 'name', 'lastname', 'phone')->get();
 
         return $pacients;
+    }
+
+    /**
+     * Get pacients filtered by inputs
+     * @param $filters
+     * @return mixed
+     */
+    public function getPacientsWithFilters($filters)
+    {
+        $select = DB::table('pacientes');
+
+        foreach ($filters as $column => $value) {
+            switch ($column) {
+                case 'name':
+                case 'lastname':
+                    $select->where($column, 'like', '%' . $value . '%');
+                    break;
+                default:
+                    $select->where($column, '=', $value);
+                    break;
+            }
+        }
+
+        return $select->get();
     }
 
 }
