@@ -92,7 +92,8 @@ class Paciente extends Model
      */
     public function getPacientsByLetter($letter)
     {
-        return $this::where('name', 'like', $letter . '%')->get();
+        return $this::where('name', 'like', '%' . $letter . '%')
+            ->orWhere('lastname', 'like', '%' . $letter . '%')->get();
     }
 
     public function getPacientByFullName($name)
